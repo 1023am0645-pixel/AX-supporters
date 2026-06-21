@@ -1,1 +1,11 @@
+여기에 이미지를 넣으세요.
+- lectures: 강의 현장/교안/실습/후기 캡처
+- app: 앱 화면 캡처, 급여이용안내 책자 캡처
+- studio: HA:YEON AI STUDIO 화면 캡처
+content.js의 src 경로/파일명을 이미지와 맞춰주세요.
 
+추가된 자리:
+- assets/app/book-guide-01.jpg
+- assets/app/book-guide-02.jpg
+- assets/app/book-guide-03.jpg
+- assets/studio/studio-reason.jpg

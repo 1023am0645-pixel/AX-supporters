@@ -122,6 +122,7 @@ figure{margin:0;}
 .frame.r169{aspect-ratio:16/9;}
 .frame.r916{aspect-ratio:9/16;}
 .frame.r1610{aspect-ratio:16/10;}
+.frame.rbook{aspect-ratio:5/7;}
 .frame img{width:100%;height:100%;object-fit:cover;display:block;}
 .frame.book-frame img{object-fit:contain;background:var(--cream2);}
 .frame .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
@@ -147,7 +148,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #s7{padding-top:10vh;padding-bottom:8vh;}
 #s8{padding-top:8vh;padding-bottom:6vh;}
 #s10c{padding-top:10vh;padding-bottom:8vh;}
-.book-proof{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.book-proof{max-width:820px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
 .book-proof .frame{box-shadow:0 18px 42px -30px rgba(0,0,0,.65);}
 .book-pain-title{font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-serif;font-size:clamp(18px,2vw,26px);font-weight:800;
   color:var(--gold);margin:22px 0 16px;line-height:1.35;text-align:center;}
@@ -260,7 +261,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
   .pains{flex-direction:column;}.pains .p + .p{border-left:none;border-top:1px solid var(--line);}
   .effects{grid-template-columns:1fr;}.effects .e{border-left:none;padding-left:0;border-top:1px solid var(--line2);}
   .studio-grid{grid-template-columns:1fr;gap:34px;}
-  .book-proof{grid-template-columns:1fr;}
+  .book-proof{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
   .app-preview-wrap .app-action{position:static;margin:0 0 18px;}
   .studio-reason-layout{grid-template-columns:1fr;gap:28px;}
   .studio-work{grid-template-columns:1fr;gap:34px;}
@@ -501,7 +502,7 @@ section('s7', w=>{
   const a=C.appWhy||{};
   const book=document.createElement('div'); book.className='book-proof rv d1';
   const bookImages = (a.bookImages||[]).length ? a.bookImages : (a.bookImage?[a.bookImage]:[]);
-  bookImages.slice(0,2).forEach(item=>book.appendChild(frame(item, 'r43 book-frame')));
+  bookImages.slice(0,3).forEach(item=>book.appendChild(frame(item, 'rbook book-frame')));
   w.appendChild(book);
   const title=document.createElement('div'); title.className='book-pain-title rv d2'; title.textContent=esc(a.painTitle||'기존 급여이용안내 책자의 단점');
   w.appendChild(title);

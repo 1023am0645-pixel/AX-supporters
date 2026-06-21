@@ -105,7 +105,8 @@ const CONTENT = {
     big: ["설명회가 끝난 뒤에도,", "보호자가 다시 확인할 수 있게."],
     bookImages: [
       { src: "assets/app/book-guide-01.jpg" },
-      { src: "assets/app/book-guide-02.jpg" }
+      { src: "assets/app/book-guide-02.jpg" },
+      { src: "assets/app/book-guide-03.jpg" }
     ],
     painTitle: "기존 급여이용안내 책자의 단점",
     pains: ["글씨가 작다", "내용이 많다", "원하는 부분을\n찾기 어려움"],
