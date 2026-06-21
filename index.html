@@ -138,7 +138,6 @@ figure{margin:0;}
 .frame:hover .img-upload,.img-upload:focus{opacity:1;background:var(--ink);color:var(--cream2);}
 .frame.has-image .img-upload{display:none;}
 figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01em;text-align:center;}
-.rowcap{grid-column:1/-1;margin:-4px 0 14px;font-size:17px;font-weight:700;color:var(--green);letter-spacing:.01em;text-align:center;}
 
 /* reviews */
 .reviews{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px;}
@@ -377,15 +376,8 @@ function pairedGallery(list, ratio, label){
   const w = document.createElement('div'); w.className='galwrap rv d2';
   if(label){ const l=document.createElement('div'); l.className='gallabel'; l.textContent=label; w.appendChild(l); }
   const g = document.createElement('div'); g.className='gal pair2x2';
-  const rowLabels = ['AX-인권플루언서 특강', '대전서부지사 청렴실천단 특강'];
   (list||[]).slice(0,4).forEach((it,i)=>{
     g.appendChild(frame(it, ratio));
-    if(i===1 || i===3){
-      const cap = document.createElement('div');
-      cap.className = 'rowcap';
-      cap.textContent = rowLabels[Math.floor(i/2)] || '';
-      g.appendChild(cap);
-    }
   });
   w.appendChild(g); return w;
 }
@@ -519,14 +511,12 @@ section('s4b', w=>{
 
 /* ───── 05 MATERIALS + PRACTICE + REVIEWS ───── */
 section('s5a', w=>{
-  w.innerHTML='<div class="ey rv">AI 특강 교안</div>'+
-    '<h2 class="big rv d1" style="font-size:clamp(24px,3vw,36px);margin-bottom:26px;">교안 및 실습용 제작 앱</h2>';
+  w.innerHTML='<div class="ey rv">AI 특강 교안</div>';
   if((C.lectureMaterials||[]).length) w.appendChild(pairedGallery(C.lectureMaterials,'r169'));
 }, 'PART 1 · 교육자료', '05-1');
 
 section('s5b', w=>{
-  w.innerHTML='<div class="ey rv">실습 결과물</div>'+
-    '<h2 class="big rv d1" style="font-size:clamp(24px,3vw,36px);margin-bottom:26px;">실습 결과물</h2>';
+  w.innerHTML='<div class="ey rv">실습 결과물</div>';
   if((C.lecturePractice||[]).length) w.appendChild(pairedGallery(C.lecturePractice,'r169'));
 }, 'PART 1 · 실습 결과물', '05-2');
 
