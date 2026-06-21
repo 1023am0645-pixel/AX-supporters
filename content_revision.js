@@ -90,15 +90,22 @@ const CONTENT = {
     { src: "assets/lectures/review-west-02.jpg" }
   ],
   lectureReviewProofImages: [
-    { src: "assets/lectures/review-proof-ax-01.png", label: "AX-인권플루언서 특강" },
-    { src: "assets/lectures/review-proof-ax-02.png", label: "AX-인권플루언서 특강" },
-    { src: "assets/lectures/review-proof-west-01.png", label: "대전서부지사 청렴실천단 특강" }
+    { src: "assets/lectures/review-difficulty.png", label: "난이도 결과" },
+    { src: "assets/lectures/review-comments.png", label: "일부 후기 원본" }
+  ],
+  lectureReviewDifficulty: [
+    { label: "매우 쉽다", value: "8명", percent: "40%" },
+    { label: "쉽다", value: "6명", percent: "30%" },
+    { label: "적절했다", value: "6명", percent: "30%" },
+    { label: "어렵다", value: "0명", percent: "0%" }
   ],
   lectureReviewCards: [
-    "새로운 AI 도구를 알게 되었고, 앞으로 활용해보고 싶다는 반응",
-    "실습형 강의로 AI 활용이 더 쉽게 느껴졌다는 반응",
-    "바이브코딩 아이디어가 실제 업무 활용 수단으로 연결되었다는 반응",
-    "강사의 리드와 진행 방식이 좋았다는 반응"
+    "공단 들어와서 이렇게 집중이 잘되고 유익한 강의가 없었습니다.. 딕션과 발성도 너무 좋으시고 에너지 가득해서 강의 듣는 내내 좋았습니다:) 강의에 진심이 느껴지셔서 너무 멋졌습니다! 감사합니다",
+    "AI에 이렇게 열정적이신 모습 보면서 대단하시다고 느꼈어요! 강사님이 열정적이셔서 저도 열심히 수업을 들을 수 있었습니다! 강사님 덕분에 지사 돌아가서 어떻게 활용하면 좋을지 아이디어 얻고 갑니다!",
+    "AI잘 활용하지도 않고 인권플루언서 교육이라고 하기에 재미 없을 줄 알았는데, 대리님 너무 말씀도 잘 해주시고 재밌는 소재의 강의여서 시간이 빨리 갔던것같습니다!",
+    "친절한 강사님 덕분에 새로운 ai도구를 많이 알게되었습니다. 열정과 진심을 담은 강의에 박수를 보냅니다.",
+    "ai 멀고도 험한길이라는 생각이 순삭바뀜. 바이브코딩강의듣고 아이디어도 얻었는데 오늘강의는 그 아이디어를 활용할수 있는 수단이 되었네요 감사합니다~~~",
+    "강사님 덕분에 재미나이라는 어플을 처음 사용해봤는데 앞으로도 유익하게 잘 사용될 것 같습니다. 강사님 얼굴 보는 재미도 있고 처음 알게된 AI도 새롭고 재미있는 강의가 되었습니다!"
   ],
   lectureReviewFootnote: "네이버 설문 응답 일부 발췌",
 

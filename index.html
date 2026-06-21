@@ -145,22 +145,28 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .review{border-left:4px solid var(--gold);background:var(--cream2);border-radius:0 12px 12px 0;padding:22px 24px;}
 .review p{font-family:'Noto Serif KR',serif;font-size:17px;color:var(--ink);line-height:1.65;}
 .review .by{margin-top:12px;font-size:14px;color:var(--soft);letter-spacing:.03em;}
-.review-showcase{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:stretch;margin-top:6px;}
-.survey-proof{border:1px solid var(--line);border-radius:10px;background:rgba(45,45,45,.52);padding:16px;}
+#s5c{padding-top:9vh;padding-bottom:6vh;}
+.review-showcase{display:grid;grid-template-columns:.78fr 1.22fr;gap:22px;align-items:start;margin-top:4px;}
+.survey-proof{border:1px solid var(--line);border-radius:10px;background:rgba(45,45,45,.52);padding:14px;}
 .survey-proof-head{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;font-weight:800;color:var(--gold);
   letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
-.survey-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.survey-proof-grid figure:first-child{grid-column:1/-1;}
+.difficulty-summary{border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);padding:12px 0;margin-bottom:12px;}
+.difficulty-title{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;font-weight:800;color:var(--ink);margin-bottom:8px;}
+.difficulty-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:5px 0;
+  font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:12.5px;color:var(--muted);}
+.difficulty-row strong{color:var(--gold);font-weight:800;}
+.survey-proof-grid{display:grid;grid-template-columns:1fr;gap:9px;}
 .proof-shot{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:#f3f3f3;}
-.survey-proof-grid figure:first-child .proof-shot{aspect-ratio:16/8.8;}
-.proof-shot img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;}
+.proof-shot img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;}
 .proof-caption{margin-top:7px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:12px;color:var(--soft);text-align:left;}
-.review-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.review-card{border:1px solid var(--line);border-radius:8px;background:rgba(31,31,31,.62);padding:20px 20px 18px;min-height:132px;
+.review-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.review-card{border:1px solid var(--line);border-radius:8px;background:rgba(31,31,31,.62);padding:13px 14px;min-height:116px;
   display:flex;flex-direction:column;justify-content:space-between;}
-.review-card .n{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:800;color:var(--gold);margin-bottom:14px;}
-.review-card p{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(15px,1.45vw,18px);
-  font-weight:700;color:var(--ink);line-height:1.6;word-break:keep-all;}
+.review-card .n{font-family:'Noto Serif KR',serif;font-size:14px;font-weight:800;color:var(--gold);margin-bottom:8px;}
+.review-card p{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(12px,1.04vw,14px);
+  font-weight:650;color:var(--ink);line-height:1.48;word-break:keep-all;}
+.review-card .q{color:var(--gold);font-family:'Noto Serif KR',serif;font-size:1.08em;font-weight:900;}
+.review-card .hi{color:var(--gold);font-weight:900;}
 .review-footnote{margin-top:16px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;color:var(--soft);
   letter-spacing:.03em;text-align:right;}
 
@@ -528,6 +534,14 @@ section('s5c', w=>{
   const wrap=document.createElement('div'); wrap.className='review-showcase rv d2';
   const proof=document.createElement('div'); proof.className='survey-proof';
   proof.innerHTML='<div class="survey-proof-head">실제 설문 캡처</div>';
+  const difficulty=document.createElement('div'); difficulty.className='difficulty-summary';
+  difficulty.innerHTML='<div class="difficulty-title">난이도 결과 정리</div>';
+  (C.lectureReviewDifficulty||[]).forEach(it=>{
+    const row=document.createElement('div'); row.className='difficulty-row';
+    row.innerHTML='<span>'+esc(it.label||'')+'</span><strong>'+esc(it.value||'')+'</strong><span>'+esc(it.percent||'')+'</span>';
+    difficulty.appendChild(row);
+  });
+  proof.appendChild(difficulty);
   const proofGrid=document.createElement('div'); proofGrid.className='survey-proof-grid';
   (C.lectureReviewProofImages||[]).forEach(it=>{
     const fig=document.createElement('figure');
@@ -540,9 +554,17 @@ section('s5c', w=>{
   proof.appendChild(proofGrid);
   const cardSide=document.createElement('div');
   const cards=document.createElement('div'); cards.className='review-card-grid';
+  const highlightWords=[
+    '유익한 강의','딕션과 발성','에너지','진심','열정적','아이디어','재밌는 소재','시간이 빨리',
+    '새로운 ai도구','열정과 진심','순삭바뀜','바이브코딩강의','활용할수 있는 수단','재미나이','유익하게','AI','ai'
+  ].sort((a,b)=>b.length-a.length);
+  const quotePattern=new RegExp('('+highlightWords.map(v=>v.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')','g');
+  const markReview=txt=>String(txt||'').split(quotePattern).map(part=>
+    highlightWords.includes(part)?'<span class="hi">'+esc(part)+'</span>':esc(part)
+  ).join('');
   (C.lectureReviewCards||[]).forEach((txt,i)=>{
     const card=document.createElement('div'); card.className='review-card';
-    card.innerHTML='<div class="n">0'+(i+1)+'</div><p>'+esc(txt)+'</p>';
+    card.innerHTML='<div class="n">0'+(i+1)+'</div><p><span class="q">“</span>'+markReview(txt)+'<span class="q">”</span></p>';
     cards.appendChild(card);
   });
   cardSide.appendChild(cards);
