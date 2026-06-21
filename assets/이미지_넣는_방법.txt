@@ -5,9 +5,20 @@
 content.js의 src 경로/파일명을 이미지와 맞춰주세요.
 
 추가된 자리:
-- assets/app/book-guide-01.jpg
-- assets/app/book-guide-02.jpg
-- assets/app/book-guide-03.jpg
+- assets/lectures/material-ax-01.png
+- assets/lectures/material-ax-02.png
+- assets/lectures/material-west-01.png
+- assets/lectures/material-west-02.png
+- assets/lectures/practice-ax-01.png
+- assets/lectures/practice-ax-02.png
+- assets/lectures/practice-west-02.png
+- assets/app/book-guide-01.png
+- assets/app/book-guide-02.png
+- assets/app/book-guide-03.png
+- assets/app/app-01.png
+- assets/app/app-02.png
+- assets/app/app-03.png
+- assets/app/app-04.png
 - assets/lectures/review-proof-ax-01.png
 - assets/lectures/review-proof-ax-02.png
 - assets/lectures/review-proof-west-01.png

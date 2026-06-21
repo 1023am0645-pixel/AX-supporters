@@ -70,16 +70,15 @@ const CONTENT = {
 
   /* ── 05. 강의 교안 / 실습 결과물 / 후기 ────────────────── */
   lectureMaterials: [
-    { src: "assets/lectures/material-ax-01.jpg" },
-    { src: "assets/lectures/material-ax-02.jpg" },
-    { src: "assets/lectures/material-west-01.jpg" },
-    { src: "assets/lectures/material-west-02.jpg" }
+    { src: "assets/lectures/material-ax-01.png" },
+    { src: "assets/lectures/material-ax-02.png" },
+    { src: "assets/lectures/material-west-01.png" },
+    { src: "assets/lectures/material-west-02.png" }
   ],
   lecturePractice: [
-    { src: "assets/lectures/practice-ax-01.jpg" },
-    { src: "assets/lectures/practice-ax-02.jpg" },
-    { src: "assets/lectures/practice-west-01.jpg" },
-    { src: "assets/lectures/practice-west-02.jpg" }
+    { src: "assets/lectures/practice-ax-01.png" },
+    { src: "assets/lectures/practice-ax-02.png" },
+    { src: "assets/lectures/practice-west-02.png" }
   ],
   lectureReviews: [            // 후기 텍스트 (원하는 만큼 추가/삭제)
   ],
@@ -117,9 +116,9 @@ const CONTENT = {
   appWhy: {
     big: ["설명회가 끝난 뒤에도,", "보호자가 다시 확인할 수 있게."],
     bookImages: [
-      { src: "assets/app/book-guide-01.jpg" },
-      { src: "assets/app/book-guide-02.jpg" },
-      { src: "assets/app/book-guide-03.jpg" }
+      { src: "assets/app/book-guide-01.png" },
+      { src: "assets/app/book-guide-02.png" },
+      { src: "assets/app/book-guide-03.png" }
     ],
     painTitle: "기존 급여이용안내 책자의 단점",
     pains: ["글씨가 작음", "내용이 많음", "원하는 부분을\n찾기 어려움"],
@@ -138,10 +137,10 @@ const CONTENT = {
     buttonLabel: "앱 열기",
     link: "https://example.com",
     images: [
-      { src: "assets/app/app-01.jpg", caption: "급여이용 절차" },
-      { src: "assets/app/app-02.jpg", caption: "급여 종류 안내" },
-      { src: "assets/app/app-03.jpg", caption: "자주 묻는 질문" },
-      { src: "assets/app/app-04.jpg", caption: "보호자 체크리스트" }
+      { src: "assets/app/app-01.png", caption: "급여이용 절차" },
+      { src: "assets/app/app-02.png", caption: "급여 종류 안내" },
+      { src: "assets/app/app-03.png", caption: "자주 묻는 질문" },
+      { src: "assets/app/app-04.png", caption: "보호자 체크리스트" }
     ]
   },
 
