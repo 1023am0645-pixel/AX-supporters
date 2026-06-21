@@ -55,9 +55,7 @@ const CONTENT = {
       subtitle: "AX-인권플루언서 특강",
       images: [
         { src: "assets/lectures/ax-01.jpg" },
-        { src: "assets/lectures/ax-02.jpg" },
-        { src: "assets/lectures/ax-03.jpg" },
-        { src: "assets/lectures/ax-04.jpg" }
+        { src: "assets/lectures/ax-02.jpg" }
       ]
     },
     {
@@ -65,9 +63,7 @@ const CONTENT = {
       subtitle: "대전서부지사 청렴실천단 특강",
       images: [
         { src: "assets/lectures/west-01.jpg" },
-        { src: "assets/lectures/west-02.jpg" },
-        { src: "assets/lectures/west-03.jpg" },
-        { src: "assets/lectures/west-04.jpg" }
+        { src: "assets/lectures/west-02.jpg" }
       ]
     }
   ],
