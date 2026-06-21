@@ -120,6 +120,7 @@ figure{margin:0;}
   background:var(--cream2);display:flex;align-items:center;justify-content:center;}
 .frame.r43{aspect-ratio:4/3;}
 .frame.r169{aspect-ratio:16/9;}
+.frame.rphoto{aspect-ratio:6048/4024;}
 .frame.r916{aspect-ratio:9/16;}
 .frame.r1610{aspect-ratio:16/10;}
 .frame.rbook{aspect-ratio:5/7;}
@@ -300,6 +301,11 @@ function frame(item, ratio){
     fr.querySelectorAll('.ph').forEach(p=>p.remove());
   };
   img.onerror = ()=>{
+    if(savedSrc && img.src === savedSrc && src){
+      if(storeKey) localStorage.removeItem(storeKey);
+      img.src = src;
+      return;
+    }
     fr.classList.remove('has-image');
     img.style.display='none';
     if(!fr.querySelector('.ph')){
@@ -473,14 +479,14 @@ section('s4a', w=>{
   const p = photoSections[0] || {};
   w.innerHTML='<div class="ey rv">'+esc(p.subtitle||'AI 특강 현장')+'</div>'+
     '<h2 class="big rv d1" style="font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.title||'강의 현장 스케치')+'</h2>';
-  if((p.images||[]).length) w.appendChild(gallery(p.images,'r169','photos'));
+  if((p.images||[]).length) w.appendChild(gallery(p.images,'rphoto','photos'));
 }, 'PART 1 · AI 특강', '04-1');
 
 section('s4b', w=>{
   const p = photoSections[1] || {};
   w.innerHTML='<div class="ey rv">'+esc(p.subtitle||'AI 특강 현장')+'</div>'+
     '<h2 class="big rv d1" style="font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.title||'강의 현장 스케치')+'</h2>';
-  if((p.images||[]).length) w.appendChild(gallery(p.images,'r169','photos'));
+  if((p.images||[]).length) w.appendChild(gallery(p.images,'rphoto','photos'));
 }, 'PART 1 · AI 특강', '04-2');
 
 /* ───── 05 MATERIALS + PRACTICE + REVIEWS ───── */
