@@ -76,6 +76,9 @@ body{font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);backgrou
 .startbtn:hover{background:var(--green);transform:translateY(-2px);}
 .startbtn:disabled{opacity:.82;cursor:default;transform:none;}
 .startbtn .a{color:var(--gold);}
+#s0 .startbtn{position:absolute;left:50%;bottom:12vh;margin-top:0;transform:translateX(-50%);}
+#s0 .startbtn:hover{transform:translate(-50%,-2px);}
+#s0 .startbtn:disabled{transform:translateX(-50%);}
 
 /* COVER */
 #s1{justify-content:space-between;background:
@@ -239,7 +242,10 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
   line-height:1.18;letter-spacing:-.02em;word-break:keep-all;min-height:1.25em;}
 #sFinal .final-copy.typing::after{content:"";display:inline-block;width:.07em;height:.84em;margin-left:.08em;
   background:var(--gold);vertical-align:-.06em;animation:cursorBlink .75s step-end infinite;}
-#sFinal .final-title{margin-top:34px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(22px,2.7vw,34px);font-weight:700;color:var(--ink);
+#sFinal .final-meta{margin-top:78px;opacity:0;transform:translateY(42px);
+  transition:opacity 1.25s ease,transform 1.55s cubic-bezier(.2,.7,.15,1);}
+#sFinal.final-ready .final-meta{opacity:1;transform:translateY(0);}
+#sFinal .final-title{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(22px,2.7vw,34px);font-weight:700;color:var(--ink);
   line-height:1.22;letter-spacing:.08em;word-break:keep-all;}
 #sFinal .final-title .g{color:var(--gold-deep);}
 #sFinal .final-sub{margin-top:18px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
@@ -609,8 +615,8 @@ section('sFinal', w=>{
   const title=esc(f.title||'감사합니다');
   w.innerHTML=(f.kicker?'<div class="kick rv">'+esc(f.kicker)+'</div>':'')+
     '<h2 class="final-copy rv" data-final-copy="'+copy+'"></h2>'+
-    '<h3 class="final-title rv d2">'+title+'</h3>'+
-    '<div class="final-sub rv d2">'+esc(f.sub||'AX-서포터즈 중간 활동 공유를 마칩니다.')+'</div>';
+    '<div class="final-meta"><h3 class="final-title">'+title+'</h3>'+
+    '<div class="final-sub">'+esc(f.sub||'AX-서포터즈 중간 활동 공유를 마칩니다.')+'</div></div>';
 }, null, '');
 
 /* ───────── NAV / REVEAL ───────── */
@@ -635,6 +641,7 @@ function runFinalType(sec){
     }else{
       el.classList.remove('typing');
       el.dataset.done='1';
+      sec.classList.add('final-ready');
     }
   };
   tick();
