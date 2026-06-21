@@ -89,6 +89,18 @@ const CONTENT = {
     { src: "assets/lectures/review-west-01.jpg" },
     { src: "assets/lectures/review-west-02.jpg" }
   ],
+  lectureReviewProofImages: [
+    { src: "assets/lectures/review-proof-ax-01.png", label: "AX-인권플루언서 특강" },
+    { src: "assets/lectures/review-proof-ax-02.png", label: "AX-인권플루언서 특강" },
+    { src: "assets/lectures/review-proof-west-01.png", label: "대전서부지사 청렴실천단 특강" }
+  ],
+  lectureReviewCards: [
+    "새로운 AI 도구를 알게 되었고, 앞으로 활용해보고 싶다는 반응",
+    "실습형 강의로 AI 활용이 더 쉽게 느껴졌다는 반응",
+    "바이브코딩 아이디어가 실제 업무 활용 수단으로 연결되었다는 반응",
+    "강사의 리드와 진행 방식이 좋았다는 반응"
+  ],
+  lectureReviewFootnote: "네이버 설문 응답 일부 발췌",
 
   /* ── 06. 개별과제 챕터 ─────────────────────────────────── */
   appChapter: {

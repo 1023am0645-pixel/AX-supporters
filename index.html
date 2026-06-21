@@ -145,6 +145,24 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .review{border-left:4px solid var(--gold);background:var(--cream2);border-radius:0 12px 12px 0;padding:22px 24px;}
 .review p{font-family:'Noto Serif KR',serif;font-size:17px;color:var(--ink);line-height:1.65;}
 .review .by{margin-top:12px;font-size:14px;color:var(--soft);letter-spacing:.03em;}
+.review-showcase{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:stretch;margin-top:6px;}
+.survey-proof{border:1px solid var(--line);border-radius:10px;background:rgba(45,45,45,.52);padding:16px;}
+.survey-proof-head{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;font-weight:800;color:var(--gold);
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
+.survey-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.survey-proof-grid figure:first-child{grid-column:1/-1;}
+.proof-shot{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:#f3f3f3;}
+.survey-proof-grid figure:first-child .proof-shot{aspect-ratio:16/8.8;}
+.proof-shot img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;}
+.proof-caption{margin-top:7px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:12px;color:var(--soft);text-align:left;}
+.review-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.review-card{border:1px solid var(--line);border-radius:8px;background:rgba(31,31,31,.62);padding:20px 20px 18px;min-height:132px;
+  display:flex;flex-direction:column;justify-content:space-between;}
+.review-card .n{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:800;color:var(--gold);margin-bottom:14px;}
+.review-card p{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(15px,1.45vw,18px);
+  font-weight:700;color:var(--ink);line-height:1.6;word-break:keep-all;}
+.review-footnote{margin-top:16px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;color:var(--soft);
+  letter-spacing:.03em;text-align:right;}
 
 /* why-app */
 #s7{padding-top:10vh;padding-bottom:8vh;}
@@ -261,6 +279,8 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
   .spoiler-grid .it:nth-child(odd){border-right:none;}
   .gal.photos,.gal.app,.gal.wide{grid-template-columns:1fr 1fr;}
   .reviews{grid-template-columns:1fr;}
+  .review-showcase{grid-template-columns:1fr;}
+  .review-card-grid{grid-template-columns:1fr;}
   .pains{flex-direction:column;}.pains .p + .p{border-left:none;border-top:1px solid var(--line);}
   .effects{grid-template-columns:1fr;}.effects .e{border-left:none;padding-left:0;border-top:1px solid var(--line2);}
   .studio-grid{grid-template-columns:1fr;gap:34px;}
@@ -505,7 +525,30 @@ section('s5b', w=>{
 section('s5c', w=>{
   w.innerHTML='<div class="ey rv">강의 후 반응</div>'+
     '<h2 class="big rv d1" style="font-size:clamp(24px,3vw,36px);margin-bottom:26px;">참여자 후기</h2>';
-  if((C.lectureReviewImages||[]).length) w.appendChild(pairedGallery(C.lectureReviewImages,'r169'));
+  const wrap=document.createElement('div'); wrap.className='review-showcase rv d2';
+  const proof=document.createElement('div'); proof.className='survey-proof';
+  proof.innerHTML='<div class="survey-proof-head">실제 설문 캡처</div>';
+  const proofGrid=document.createElement('div'); proofGrid.className='survey-proof-grid';
+  (C.lectureReviewProofImages||[]).forEach(it=>{
+    const fig=document.createElement('figure');
+    const shot=document.createElement('div'); shot.className='proof-shot';
+    const img=document.createElement('img'); img.src=esc(it.src); img.alt=esc(it.label||'설문 캡처');
+    shot.appendChild(img); fig.appendChild(shot);
+    const cap=document.createElement('figcaption'); cap.className='proof-caption'; cap.textContent=esc(it.label||'');
+    fig.appendChild(cap); proofGrid.appendChild(fig);
+  });
+  proof.appendChild(proofGrid);
+  const cardSide=document.createElement('div');
+  const cards=document.createElement('div'); cards.className='review-card-grid';
+  (C.lectureReviewCards||[]).forEach((txt,i)=>{
+    const card=document.createElement('div'); card.className='review-card';
+    card.innerHTML='<div class="n">0'+(i+1)+'</div><p>'+esc(txt)+'</p>';
+    cards.appendChild(card);
+  });
+  cardSide.appendChild(cards);
+  const foot=document.createElement('div'); foot.className='review-footnote'; foot.textContent=esc(C.lectureReviewFootnote||'네이버 설문 응답 일부 발췌');
+  cardSide.appendChild(foot);
+  wrap.appendChild(proof); wrap.appendChild(cardSide); w.appendChild(wrap);
 }, 'PART 1 · 후기', '05-3');
 
 /* ───── 06 APP CHAPTER ───── */
