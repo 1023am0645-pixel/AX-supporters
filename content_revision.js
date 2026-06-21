@@ -51,16 +51,16 @@ const CONTENT = {
   /* ── 04. AI 특강 현장 사진 ─────────────────────────────── */
   lecturePhotoSections: [
     {
-      title: "강의 현장 스케치",
-      subtitle: "AX-인권플루언서 특강",
+      title: "AX-인권플루언서 특강",
+      subtitle: "강의 현장 스케치",
       images: [
         { src: "assets/lectures/ax-01.jpg" },
         { src: "assets/lectures/ax-02.jpg" }
       ]
     },
     {
-      title: "강의 현장 스케치",
-      subtitle: "대전서부지사 청렴실천단 특강",
+      title: "대전서부지사 청렴실천단 특강",
+      subtitle: "강의 현장 스케치",
       images: [
         { src: "assets/lectures/west-01.jpg" },
         { src: "assets/lectures/west-02.jpg" }
@@ -137,10 +137,10 @@ const CONTENT = {
     buttonLabel: "앱 열기",
     link: "https://example.com",
     images: [
-      { src: "assets/app/app-01.png", caption: "급여이용 절차" },
-      { src: "assets/app/app-02.png", caption: "급여 종류 안내" },
-      { src: "assets/app/app-03.png", caption: "자주 묻는 질문" },
-      { src: "assets/app/app-04.png", caption: "보호자 체크리스트" }
+      { src: "assets/app/app-01.png" },
+      { src: "assets/app/app-02.png" },
+      { src: "assets/app/app-03.png" },
+      { src: "assets/app/app-04.png" }
     ]
   },
 

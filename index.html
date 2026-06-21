@@ -173,9 +173,9 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 
 /* why-app */
 #s7{padding-top:10vh;padding-bottom:8vh;}
-#s8{padding-top:8vh;padding-bottom:6vh;}
+#s8{padding:8vh 5vw 6vh;}
 #s10c{padding-top:10vh;padding-bottom:8vh;}
-.book-proof{max-width:820px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.book-proof{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
 .book-proof .frame{box-shadow:0 18px 42px -30px rgba(0,0,0,.65);}
 .book-pain-title{font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-serif;font-size:clamp(18px,2vw,26px);font-weight:800;
   color:var(--gold);margin:40px 0 14px;line-height:1.35;text-align:left;display:flex;align-items:center;gap:10px;}
@@ -196,14 +196,15 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .effects .e .n{font-family:'Noto Serif KR',serif;font-size:18px;color:var(--gold);margin-bottom:9px;font-weight:700;}
 .effects .e h4{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:21px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.45;}
 .effects .e p{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;color:var(--muted);line-height:1.7;}
-.app-preview-wrap{position:relative;max-width:1320px;}
+.app-preview-wrap{position:relative;max-width:1500px;}
 .app-preview-wrap .intro{margin-bottom:20px;}
 .app-preview-wrap .intro .ey{margin-bottom:14px;}
 .app-preview-wrap .galwrap{margin-top:4px;}
-.app-preview-wrap .gal.app{max-width:1320px;margin:0 auto;gap:22px;}
+.app-preview-wrap .gal.app{max-width:1500px;margin:0 auto;gap:22px;}
 .app-preview-wrap .frame img{object-fit:contain;background:#EEF5FF;}
-.app-preview-wrap figcaption{font-size:15px;margin-top:10px;}
+.app-preview-wrap figcaption{display:none;}
 .app-preview-wrap .app-action{position:absolute;right:0;top:0;margin-top:0;}
+.practice-wrap .frame img{object-fit:contain;background:var(--cream2);}
 
 /* app open button */
 .openbtn{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--cream2);
@@ -500,14 +501,14 @@ const photoSections = C.lecturePhotoSections || [];
 section('s4a', w=>{
   const p = photoSections[0] || {};
   w.innerHTML='<div class="ey rv">'+esc(p.subtitle||'AI 특강 현장')+'</div>'+
-    '<h2 class="big rv d1" style="font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.title||'강의 현장 스케치')+'</h2>';
+    '<h2 class="big rv d1" style="font-family:\'Pretendard\',\'Apple SD Gothic Neo\',\'Noto Sans KR\',sans-serif;font-weight:800;letter-spacing:0;font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.title||'강의 현장 스케치')+'</h2>';
   if((p.images||[]).length) w.appendChild(gallery(p.images,'rphoto','photos'));
 }, 'PART 1 · AI 특강', '04-1');
 
 section('s4b', w=>{
   const p = photoSections[1] || {};
   w.innerHTML='<div class="ey rv">'+esc(p.subtitle||'AI 특강 현장')+'</div>'+
-    '<h2 class="big rv d1" style="font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.title||'강의 현장 스케치')+'</h2>';
+    '<h2 class="big rv d1" style="font-family:\'Pretendard\',\'Apple SD Gothic Neo\',\'Noto Sans KR\',sans-serif;font-weight:800;letter-spacing:0;font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.title||'강의 현장 스케치')+'</h2>';
   if((p.images||[]).length) w.appendChild(gallery(p.images,'rphoto','photos'));
 }, 'PART 1 · AI 특강', '04-2');
 
@@ -518,6 +519,7 @@ section('s5a', w=>{
 }, 'PART 1 · 교육자료', '05-1');
 
 section('s5b', w=>{
+  w.classList.add('practice-wrap');
   w.innerHTML='<div class="ey rv">실습 결과물</div>';
   if((C.lecturePractice||[]).length) w.appendChild(pairedGallery(C.lecturePractice,'r169'));
 }, 'PART 1 · 실습 결과물', '05-2');
