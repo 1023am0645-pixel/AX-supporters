@@ -109,7 +109,7 @@ const CONTENT = {
       { src: "assets/app/book-guide-03.jpg" }
     ],
     painTitle: "기존 급여이용안내 책자의 단점",
-    pains: ["글씨가 작다", "내용이 많다", "원하는 부분을\n찾기 어려움"],
+    pains: ["글씨가 작음", "내용이 많음", "원하는 부분을\n찾기 어려움"],
     bridge: "그래서,\n책자보다 쉬운 확인 방법이 필요했습니다.",
     effects: [
       { title: "보호자 확인은 쉽게", note: "필요한 정보를 휴대폰으로 확인" },
