@@ -146,8 +146,8 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .review p{font-family:'Noto Serif KR',serif;font-size:17px;color:var(--ink);line-height:1.65;}
 .review .by{margin-top:12px;font-size:14px;color:var(--soft);letter-spacing:.03em;}
 #s5c{padding-top:9vh;padding-bottom:6vh;}
-.review-showcase{display:grid;grid-template-columns:.78fr 1.22fr;gap:22px;align-items:start;margin-top:4px;}
-.survey-proof{border:1px solid var(--line);border-radius:10px;background:rgba(45,45,45,.52);padding:14px;}
+.review-showcase{display:block;max-width:1320px;margin:4px auto 0;}
+.survey-proof{border:1px solid var(--line);border-radius:10px;background:rgba(45,45,45,.52);padding:14px;margin-bottom:18px;}
 .survey-proof-head{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;font-weight:800;color:var(--gold);
   letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
 .difficulty-summary{border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);padding:12px 0;margin-bottom:12px;}
@@ -155,16 +155,17 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .difficulty-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:5px 0;
   font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:12.5px;color:var(--muted);}
 .difficulty-row strong{color:var(--gold);font-weight:800;}
-.survey-proof-grid{display:grid;grid-template-columns:1fr;gap:9px;}
-.proof-shot{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:#f3f3f3;}
-.proof-shot img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;}
+.survey-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.proof-link{display:block;color:inherit;text-decoration:none;}
+.proof-shot{position:relative;aspect-ratio:16/8.7;border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:#f3f3f3;}
+.proof-shot img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;}
 .proof-caption{margin-top:7px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:12px;color:var(--soft);text-align:left;}
-.review-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.review-card{border:1px solid var(--line);border-radius:8px;background:rgba(31,31,31,.62);padding:13px 14px;min-height:116px;
+.review-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.review-card{border:1px solid var(--line);border-radius:8px;background:rgba(31,31,31,.62);padding:18px 20px;min-height:126px;
   display:flex;flex-direction:column;justify-content:space-between;}
-.review-card .n{font-family:'Noto Serif KR',serif;font-size:14px;font-weight:800;color:var(--gold);margin-bottom:8px;}
-.review-card p{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(12px,1.04vw,14px);
-  font-weight:650;color:var(--ink);line-height:1.48;word-break:keep-all;}
+.review-card .n{font-family:'Noto Serif KR',serif;font-size:15px;font-weight:800;color:var(--gold);margin-bottom:10px;}
+.review-card p{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(14px,1.18vw,17px);
+  font-weight:700;color:var(--ink);line-height:1.5;word-break:keep-all;}
 .review-card .q{color:var(--gold);font-family:'Noto Serif KR',serif;font-size:1.08em;font-weight:900;}
 .review-card .hi{color:var(--gold);font-weight:900;}
 .review-footnote{margin-top:16px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;color:var(--soft);
@@ -285,7 +286,8 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
   .spoiler-grid .it:nth-child(odd){border-right:none;}
   .gal.photos,.gal.app,.gal.wide{grid-template-columns:1fr 1fr;}
   .reviews{grid-template-columns:1fr;}
-  .review-showcase{grid-template-columns:1fr;}
+  .review-showcase{display:block;}
+  .survey-proof-grid{grid-template-columns:1fr;}
   .review-card-grid{grid-template-columns:1fr;}
   .pains{flex-direction:column;}.pains .p + .p{border-left:none;border-top:1px solid var(--line);}
   .effects{grid-template-columns:1fr;}.effects .e{border-left:none;padding-left:0;border-top:1px solid var(--line2);}
@@ -534,25 +536,17 @@ section('s5c', w=>{
   const wrap=document.createElement('div'); wrap.className='review-showcase rv d2';
   const proof=document.createElement('div'); proof.className='survey-proof';
   proof.innerHTML='<div class="survey-proof-head">실제 설문 캡처</div>';
-  const difficulty=document.createElement('div'); difficulty.className='difficulty-summary';
-  difficulty.innerHTML='<div class="difficulty-title">난이도 결과 정리</div>';
-  (C.lectureReviewDifficulty||[]).forEach(it=>{
-    const row=document.createElement('div'); row.className='difficulty-row';
-    row.innerHTML='<span>'+esc(it.label||'')+'</span><strong>'+esc(it.value||'')+'</strong><span>'+esc(it.percent||'')+'</span>';
-    difficulty.appendChild(row);
-  });
-  proof.appendChild(difficulty);
   const proofGrid=document.createElement('div'); proofGrid.className='survey-proof-grid';
   (C.lectureReviewProofImages||[]).forEach(it=>{
     const fig=document.createElement('figure');
     const shot=document.createElement('div'); shot.className='proof-shot';
     const img=document.createElement('img'); img.src=esc(it.src); img.alt=esc(it.label||'설문 캡처');
-    shot.appendChild(img); fig.appendChild(shot);
+    const link=document.createElement('a'); link.className='proof-link'; link.href=esc(it.src); link.target='_blank'; link.rel='noopener';
+    shot.appendChild(img); link.appendChild(shot); fig.appendChild(link);
     const cap=document.createElement('figcaption'); cap.className='proof-caption'; cap.textContent=esc(it.label||'');
     fig.appendChild(cap); proofGrid.appendChild(fig);
   });
   proof.appendChild(proofGrid);
-  const cardSide=document.createElement('div');
   const cards=document.createElement('div'); cards.className='review-card-grid';
   const highlightWords=[
     '유익한 강의','딕션과 발성','에너지','진심','열정적','아이디어','재밌는 소재','시간이 빨리',
@@ -567,10 +561,8 @@ section('s5c', w=>{
     card.innerHTML='<div class="n">0'+(i+1)+'</div><p><span class="q">“</span>'+markReview(txt)+'<span class="q">”</span></p>';
     cards.appendChild(card);
   });
-  cardSide.appendChild(cards);
   const foot=document.createElement('div'); foot.className='review-footnote'; foot.textContent=esc(C.lectureReviewFootnote||'네이버 설문 응답 일부 발췌');
-  cardSide.appendChild(foot);
-  wrap.appendChild(proof); wrap.appendChild(cardSide); w.appendChild(wrap);
+  wrap.appendChild(proof); wrap.appendChild(cards); wrap.appendChild(foot); w.appendChild(wrap);
 }, 'PART 1 · 후기', '05-3');
 
 /* ───── 06 APP CHAPTER ───── */
