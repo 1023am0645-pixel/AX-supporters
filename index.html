@@ -283,11 +283,12 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #sEnd .closing-copy{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink);word-break:keep-all;overflow-wrap:normal;}
 #sEnd .closing-copy p{margin:0;}
 #sEnd .closing-copy .intro{font-size:clamp(14px,1.45vw,18px);font-weight:500;color:var(--muted);line-height:1.75;}
-#sEnd .closing-copy .core{margin-top:42px;font-size:clamp(18px,2.1vw,28px);font-weight:800;line-height:1.45;max-width:34ch;}
-#sEnd .closing-copy .next{margin-top:40px;font-size:clamp(25px,3.45vw,46px);font-weight:650;line-height:1.34;max-width:24ch;}
+#sEnd .closing-copy .core{margin-top:42px;font-size:clamp(24px,3.3vw,44px);font-weight:800;line-height:1.34;max-width:22ch;}
+#sEnd .closing-copy .next{margin-top:40px;font-size:clamp(18px,2.05vw,30px);font-weight:650;line-height:1.55;max-width:34ch;}
 #sEnd .closing-copy .g{color:var(--gold-deep);font-weight:900;}
 #sEnd .closing-copy .core .g{font-size:1.07em;}
 #sEnd .closing-copy .next .g{font-size:1.04em;}
+#sEnd .closing-copy .nowrap{white-space:nowrap;}
 #sEnd .sign{margin-top:34px;font-size:15px;letter-spacing:.12em;color:var(--soft);text-transform:uppercase;}
 
 /* final */
@@ -726,12 +727,13 @@ section('sEnd', w=>{
       .replace('업무도구','<span class="g">업무도구</span>')
       .replace('더 쉬운 안내수단','<span class="g">더 쉬운 안내수단</span>')
       .replace('개인의 활용 경험을 넘어','<span class="g">개인의 활용 경험을 넘어</span>')
-      .replace('현장에서 쓰일 수 있는 결과물','<span class="g">현장에서 쓰일 수 있는 결과물</span>');
+      .replace('현장에서 쓰일 수 있는 결과물','<span class="g">현장에서 쓰일 수 있는 결과물</span>')
+      .replace('더 구체화해가겠습니다.','<span class="nowrap">더 구체화해가겠습니다.</span>');
   const group=(cls,items)=>'<p class="'+cls+'">'+items.map(decorate).join('<br>')+'</p>';
   let html='<div class="pre rv">마무리</div><div class="closing-copy rv d1">';
   html+=group('intro', lines.slice(0,2));
-  html+=group('core', lines.slice(2,4));
-  html+=group('next', lines.slice(4,6));
+  html+=group('core', lines.slice(2,5));
+  html+=group('next', lines.slice(5,9));
   html+='</div>';
   w.innerHTML=html;
 }, 'Epilogue', '');
