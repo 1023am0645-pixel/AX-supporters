@@ -145,9 +145,10 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .review{border-left:4px solid var(--gold);background:var(--cream2);border-radius:0 12px 12px 0;padding:22px 24px;}
 .review p{font-family:'Noto Serif KR',serif;font-size:17px;color:var(--ink);line-height:1.65;}
 .review .by{margin-top:12px;font-size:14px;color:var(--soft);letter-spacing:.03em;}
-#s5c{padding-top:9vh;padding-bottom:6vh;}
-.review-showcase{display:block;max-width:1320px;margin:4px auto 0;}
-.survey-proof{border:1px solid var(--line);border-radius:10px;background:rgba(45,45,45,.52);padding:14px;margin-bottom:18px;}
+#s5c{padding-top:9vh;padding-bottom:7vh;}
+#s5d{padding-top:10vh;padding-bottom:8vh;}
+.review-showcase{display:block;max-width:1400px;margin:4px auto 0;}
+.survey-proof{border:1px solid var(--line);border-radius:10px;background:rgba(45,45,45,.52);padding:18px;margin-bottom:18px;}
 .survey-proof-head{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;font-weight:800;color:var(--gold);
   letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
 .difficulty-summary{border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);padding:12px 0;margin-bottom:12px;}
@@ -155,19 +156,19 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .difficulty-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:5px 0;
   font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:12.5px;color:var(--muted);}
 .difficulty-row strong{color:var(--gold);font-weight:800;}
-.survey-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.survey-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 .proof-link{display:block;color:inherit;text-decoration:none;}
-.proof-shot{position:relative;aspect-ratio:16/8.7;border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:#f3f3f3;}
-.proof-shot img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;}
-.proof-caption{margin-top:7px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:12px;color:var(--soft);text-align:left;}
-.review-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.review-card{border:1px solid var(--line);border-radius:8px;background:rgba(31,31,31,.62);padding:18px 20px;min-height:126px;
-  display:flex;flex-direction:column;justify-content:space-between;}
-.review-card .n{font-family:'Noto Serif KR',serif;font-size:15px;font-weight:800;color:var(--gold);margin-bottom:10px;}
-.review-card p{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(14px,1.18vw,17px);
-  font-weight:700;color:var(--ink);line-height:1.5;word-break:keep-all;}
-.review-card .q{color:var(--gold);font-family:'Noto Serif KR',serif;font-size:1.08em;font-weight:900;}
-.review-card .hi{color:var(--gold);font-weight:900;}
+.proof-shot{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:#f3f3f3;}
+.proof-shot img{width:100%;height:100%;object-fit:contain;object-position:center top;display:block;}
+.proof-caption{margin-top:12px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;font-weight:800;color:var(--ink);text-align:center;}
+.review-lines{display:grid;gap:16px;max-width:1220px;margin:0 auto;}
+.review-line{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;border:1px solid var(--line);border-radius:8px;
+  background:rgba(31,31,31,.62);padding:20px 24px;}
+.review-line .n{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:800;color:var(--gold);}
+.review-line p{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(16px,1.45vw,22px);
+  font-weight:700;color:var(--ink);line-height:1.52;word-break:keep-all;}
+.review-line .q{color:var(--gold);font-family:'Noto Serif KR',serif;font-size:1.08em;font-weight:900;}
+.review-line .hi{color:var(--gold);font-size:1.08em;font-weight:900;}
 .review-footnote{margin-top:16px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;color:var(--soft);
   letter-spacing:.03em;text-align:right;}
 
@@ -205,6 +206,12 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .app-preview-wrap figcaption{display:none;}
 .app-preview-wrap .app-action{position:absolute;right:0;top:0;margin-top:0;}
 .practice-wrap .frame img{object-fit:contain;background:var(--cream2);}
+.practice-feature-grid{display:grid;grid-template-columns:.96fr 1.04fr;grid-template-rows:auto auto;gap:18px;max-width:1180px;margin:12px auto 0;}
+.practice-feature-grid .left-top{grid-column:1;grid-row:1;}
+.practice-feature-grid .left-bottom{grid-column:1;grid-row:2;}
+.practice-feature-grid .right-tall{grid-column:2;grid-row:1 / span 2;height:100%;display:flex;flex-direction:column;}
+.practice-feature-grid .right-tall .frame{height:100%;aspect-ratio:auto;flex:1;}
+.practice-feature-grid figure{min-width:0;}
 
 /* app open button */
 .openbtn{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--cream2);
@@ -290,7 +297,10 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
   .reviews{grid-template-columns:1fr;}
   .review-showcase{display:block;}
   .survey-proof-grid{grid-template-columns:1fr;}
-  .review-card-grid{grid-template-columns:1fr;}
+  .review-line{grid-template-columns:1fr;gap:8px;}
+  .practice-feature-grid{grid-template-columns:1fr;grid-template-rows:auto;max-width:100%;}
+  .practice-feature-grid .left-top,.practice-feature-grid .left-bottom,.practice-feature-grid .right-tall{grid-column:auto;grid-row:auto;}
+  .practice-feature-grid .right-tall .frame{aspect-ratio:16/9;height:auto;}
   .pains{flex-direction:column;}.pains .p + .p{border-left:none;border-top:1px solid var(--line);}
   .effects{grid-template-columns:1fr;}.effects .e{border-left:none;padding-left:0;border-top:1px solid var(--line2);}
   .studio-grid{grid-template-columns:1fr;gap:34px;}
@@ -521,7 +531,14 @@ section('s5a', w=>{
 section('s5b', w=>{
   w.classList.add('practice-wrap');
   w.innerHTML='<div class="ey rv">실습 결과물</div>';
-  if((C.lecturePractice||[]).length) w.appendChild(pairedGallery(C.lecturePractice,'r169'));
+  const list=C.lecturePractice||[];
+  if(list.length){
+    const grid=document.createElement('div'); grid.className='practice-feature-grid rv d2';
+    if(list[0]){ const fig=frame(list[0],'r169'); fig.classList.add('left-top'); grid.appendChild(fig); }
+    if(list[1]){ const fig=frame(list[1],'r169'); fig.classList.add('left-bottom'); grid.appendChild(fig); }
+    if(list[2]){ const fig=frame(list[2],'r169'); fig.classList.add('right-tall'); grid.appendChild(fig); }
+    w.appendChild(grid);
+  }
 }, 'PART 1 · 실습 결과물', '05-2');
 
 section('s5c', w=>{
@@ -534,30 +551,38 @@ section('s5c', w=>{
   (C.lectureReviewProofImages||[]).forEach(it=>{
     const fig=document.createElement('figure');
     const shot=document.createElement('div'); shot.className='proof-shot';
-    const img=document.createElement('img'); img.src=esc(it.src); img.alt=esc(it.label||'설문 캡처');
-    const link=document.createElement('a'); link.className='proof-link'; link.href=esc(it.src); link.target='_blank'; link.rel='noopener';
+    const img=document.createElement('img'); img.src=it.src||''; img.alt=it.label||'설문 캡처';
+    const link=document.createElement('a'); link.className='proof-link'; link.href=it.src||''; link.target='_blank'; link.rel='noopener';
     shot.appendChild(img); link.appendChild(shot); fig.appendChild(link);
-    const cap=document.createElement('figcaption'); cap.className='proof-caption'; cap.textContent=esc(it.label||'');
+    const cap=document.createElement('figcaption'); cap.className='proof-caption'; cap.textContent=it.label||'';
     fig.appendChild(cap); proofGrid.appendChild(fig);
   });
   proof.appendChild(proofGrid);
-  const cards=document.createElement('div'); cards.className='review-card-grid';
-  const highlightWords=[
-    '유익한 강의','딕션과 발성','에너지','진심','열정적','아이디어','재밌는 소재','시간이 빨리',
-    '새로운 ai도구','열정과 진심','순삭바뀜','바이브코딩강의','활용할수 있는 수단','재미나이','유익하게','AI','ai'
-  ].sort((a,b)=>b.length-a.length);
-  const quotePattern=new RegExp('('+highlightWords.map(v=>v.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')','g');
-  const markReview=txt=>String(txt||'').split(quotePattern).map(part=>
-    highlightWords.includes(part)?'<span class="hi">'+esc(part)+'</span>':esc(part)
-  ).join('');
+  wrap.appendChild(proof); w.appendChild(wrap);
+}, 'PART 1 · 후기', '05-3');
+
+section('s5d', w=>{
+  w.innerHTML='<div class="ey rv">대표 후기</div>'+
+    '<h2 class="big rv d1" style="font-size:clamp(24px,3vw,36px);margin-bottom:28px;">교육생이 남긴 한 줄 반응</h2>';
+  const lines=document.createElement('div'); lines.className='review-lines rv d2';
+  const escapeReg=v=>String(v).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const markReview=(txt,phrases=[])=>{
+    const list=[...phrases].sort((a,b)=>b.length-a.length);
+    if(!list.length) return esc(txt);
+    const pattern=new RegExp('('+list.map(escapeReg).join('|')+')','g');
+    return String(txt||'').split(pattern).map(part=>
+      list.includes(part)?'<span class="hi">'+esc(part)+'</span>':esc(part)
+    ).join('');
+  };
   (C.lectureReviewCards||[]).forEach((txt,i)=>{
-    const card=document.createElement('div'); card.className='review-card';
-    card.innerHTML='<div class="n">0'+(i+1)+'</div><p><span class="q">“</span>'+markReview(txt)+'<span class="q">”</span></p>';
-    cards.appendChild(card);
+    const row=document.createElement('div'); row.className='review-line';
+    const phrases=(C.lectureReviewHighlights||[])[i]||[];
+    row.innerHTML='<div class="n">0'+(i+1)+'</div><p><span class="q">“</span>'+markReview(txt,phrases)+'<span class="q">”</span></p>';
+    lines.appendChild(row);
   });
   const foot=document.createElement('div'); foot.className='review-footnote'; foot.textContent=esc(C.lectureReviewFootnote||'네이버 설문 응답 일부 발췌');
-  wrap.appendChild(proof); wrap.appendChild(cards); wrap.appendChild(foot); w.appendChild(wrap);
-}, 'PART 1 · 후기', '05-3');
+  w.appendChild(lines); w.appendChild(foot);
+}, 'PART 1 · 대표 후기', '05-4');
 
 /* ───── 06 APP CHAPTER ───── */
 section('s6', w=>{

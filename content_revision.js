@@ -62,7 +62,7 @@ const CONTENT = {
       title: "대전서부지사 청렴실천단 특강",
       subtitle: "강의 현장 스케치",
       images: [
-        { src: "assets/lectures/west-01.jpg" },
+        { src: "assets/lectures/west-01.jpg?v=2" },
         { src: "assets/lectures/west-02.jpg" }
       ]
     }
@@ -89,8 +89,8 @@ const CONTENT = {
     { src: "assets/lectures/review-west-02.jpg" }
   ],
   lectureReviewProofImages: [
-    { src: "assets/lectures/review-difficulty.png", label: "난이도 결과" },
-    { src: "assets/lectures/review-comments.png", label: "일부 후기 원본" }
+    { src: "assets/lectures/review-difficulty.png", label: "강의 난이도 : 매우 쉽다 40%, 쉽다 30%, 적절했다 30%" },
+    { src: "assets/lectures/review-comments.png", label: "1, 2차 특강 교육생 후기 총 33건" }
   ],
   lectureReviewDifficulty: [
     { label: "매우 쉽다", value: "8명", percent: "40%" },
@@ -103,6 +103,12 @@ const CONTENT = {
     "강사님이 AI에 이렇게 열정적이셔서 저도 열심히 수업을 들을 수 있었습니다! 지사 돌아가서 어떻게 활용하면 좋을지 아이디어 얻고 갑니다!",
     "AI잘 활용하지도 않고 인권플루언서 교육이라고 하기에 재미 없을 줄 알았는데, 말씀도 잘 해주시고 재밌는 소재의 강의여서 시간이 빨리 갔던것같습니다!",
     "ai 멀고도 험한길이라는 생각이 순삭바뀜. 바이브코딩강의듣고 아이디어도 얻었는데 오늘강의는 그 아이디어를 활용할수 있는 수단이 되었네요 감사합니다~~~"
+  ],
+  lectureReviewHighlights: [
+    ["집중이 잘되고 유익한 강의", "딕션과 발성", "강의에 진심"],
+    ["AI에 이렇게 열정적", "아이디어 얻고 갑니다"],
+    ["재밌는 소재의 강의", "시간이 빨리 갔던"],
+    ["생각이 순삭바뀜", "아이디어를 활용할수 있는 수단"]
   ],
   lectureReviewFootnote: "네이버 설문 응답 일부 발췌",
 
