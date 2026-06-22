@@ -283,8 +283,8 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #sEnd .closing-copy{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink);word-break:keep-all;overflow-wrap:normal;}
 #sEnd .closing-copy p{margin:0;}
 #sEnd .closing-copy .intro{font-size:clamp(14px,1.45vw,18px);font-weight:500;color:var(--muted);line-height:1.75;}
-#sEnd .closing-copy .core{margin-top:42px;font-size:clamp(25px,3.45vw,46px);font-weight:800;line-height:1.34;max-width:21ch;}
-#sEnd .closing-copy .next{margin-top:40px;font-size:clamp(18px,2.1vw,28px);font-weight:650;line-height:1.55;max-width:34ch;}
+#sEnd .closing-copy .core{margin-top:42px;font-size:clamp(18px,2.1vw,28px);font-weight:800;line-height:1.45;max-width:34ch;}
+#sEnd .closing-copy .next{margin-top:40px;font-size:clamp(25px,3.45vw,46px);font-weight:650;line-height:1.34;max-width:24ch;}
 #sEnd .closing-copy .g{color:var(--gold-deep);font-weight:900;}
 #sEnd .closing-copy .core .g{font-size:1.07em;}
 #sEnd .closing-copy .next .g{font-size:1.04em;}
@@ -597,7 +597,7 @@ section('s5d', w=>{
   w.innerHTML='<div class="ey rv">대표 후기</div>';
   const lines=document.createElement('div'); lines.className='review-lines rv d2';
   const escapeReg=v=>String(v).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-  const addSentenceBreaks=txt=>String(txt||'').replace(/([.!?]+)\s*/g,'$1\n').trim();
+  const addSentenceBreaks=txt=>String(txt||'').replace(/([.!?,]+)\s*/g,'$1\n').trim();
   const markReview=(txt,phrases=[])=>{
     txt=addSentenceBreaks(txt);
     const list=[...phrases].sort((a,b)=>b.length-a.length);
