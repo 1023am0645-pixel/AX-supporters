@@ -53,7 +53,7 @@ const CONTENT = {
     items: [
       {
         label: "대상",
-        text: ["대전세종충청지역본부 AX-인권플루언서", "대전서부지사 청렴실천단"]
+        text: ["1. 대전세종충청지역본부 AX-인권플루언서", "2. 대전서부지사 청렴실천단"]
       },
       {
         label: "목적",
@@ -65,7 +65,7 @@ const CONTENT = {
       },
       {
         label: "방식",
-        text: ["업무 예시 중심 참여형 실습"]
+        text: ["교육생이 직접 적용해보는", "참여형 실습"]
       }
     ]
   },
@@ -113,7 +113,7 @@ const CONTENT = {
     { src: "assets/lectures/review-west-02.jpg" }
   ],
   lectureReviewProofImages: [
-    { src: "assets/lectures/review-difficulty.png", label: "강의 난이도 : 매우 쉽다 40%, 쉽다 30%, 적절했다 30%" },
+    { src: "assets/lectures/review-difficulty.png", label: "매우 쉽다 40%, 쉽다 30%, 적절했다 30%" },
     { src: "assets/lectures/review-comments.png", label: "1, 2차 특강 교육생 후기 총 33건" }
   ],
   lectureReviewDifficulty: [
@@ -221,13 +221,11 @@ const CONTENT = {
   closing: {
     lines: [
       "이번 AX-서포터즈 활동은",
-      "AI를 배우는 데서 멈추지 않고,",
+      "AI를 배우는 데서 멈추지 않고",
       "직원에게는 업무도구로,",
       "국민에게는 더 쉬운 안내수단으로 연결해보았습니다.",
-      "남은 기간에는",
-      "개인의 활용 경험을 넘어,",
-      "현장에서 쓰일 수 있는 결과물로",
-      "더 구체화해가겠습니다."
+      "남은 기간에는 개인의 활용 경험을 넘어,",
+      "현장에서 쓰일 수 있는 결과물로 더 구체화해가겠습니다."
     ]
   },
 

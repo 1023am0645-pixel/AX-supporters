@@ -171,7 +171,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .proof-link{display:block;color:inherit;text-decoration:none;}
 .proof-shot{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:#f3f3f3;}
 .proof-shot img{width:100%;height:100%;object-fit:contain;object-position:center top;display:block;}
-.proof-caption{margin-top:12px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;font-weight:800;color:var(--ink);text-align:center;}
+.proof-caption{margin-top:12px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:15px;font-weight:400;color:var(--muted);text-align:center;}
 .review-lines{display:grid;gap:16px;max-width:1220px;margin:0 auto;}
 .review-line{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;border:1px solid var(--line);border-radius:8px;
   background:rgba(31,31,31,.62);padding:20px 24px;}
@@ -179,7 +179,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .review-line p{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(16px,1.45vw,22px);
   font-weight:700;color:var(--ink);line-height:1.52;word-break:keep-all;}
 .review-line .q{color:var(--gold);font-family:'Noto Serif KR',serif;font-size:1.08em;font-weight:900;}
-.review-line .hi{color:var(--gold);font-size:1.08em;font-weight:900;}
+.review-line .hi{color:var(--gold);font-size:calc(1em + 2pt);font-weight:900;}
 .review-footnote{margin-top:16px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;color:var(--soft);
   letter-spacing:.03em;text-align:right;}
 
@@ -217,11 +217,16 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .app-preview-wrap figcaption{display:none;}
 .app-preview-wrap .app-action{position:absolute;right:0;top:0;margin-top:0;}
 .practice-wrap .frame img{object-fit:contain;background:var(--cream2);}
-.practice-feature-grid{display:grid;grid-template-columns:.96fr 1.04fr;grid-template-rows:auto auto;gap:18px;max-width:1180px;margin:12px auto 0;}
+#s5a,#s5b{padding-left:7vw;padding-right:7vw;}
+#s5a .wrap,#s5b .wrap{max-width:1320px;}
+#s5a .gal.pair2x2{gap:20px 26px;}
+.practice-feature-grid{display:grid;grid-template-columns:1.08fr .92fr;grid-template-rows:auto auto;gap:18px;max-width:1260px;margin:12px auto 0;}
 .practice-feature-grid .left-top{grid-column:1;grid-row:1;}
 .practice-feature-grid .left-bottom{grid-column:1;grid-row:2;}
 .practice-feature-grid .right-tall{grid-column:2;grid-row:1 / span 2;height:100%;display:flex;flex-direction:column;}
 .practice-feature-grid .right-tall .frame{height:100%;aspect-ratio:auto;flex:1;}
+.practice-feature-grid .left-top,.practice-feature-grid .left-bottom{height:100%;display:flex;flex-direction:column;}
+.practice-feature-grid .left-top .frame,.practice-feature-grid .left-bottom .frame{height:100%;aspect-ratio:auto;flex:1;}
 .practice-feature-grid figure{min-width:0;}
 
 /* app open button */
@@ -281,7 +286,6 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #sEnd .cl .para{display:block;margin-top:7px;}
 #sEnd .cl .para:first-child{margin-top:0;}
 #sEnd .cl .gap{margin-top:26px;}
-#sEnd .cl .last{color:var(--green);}
 #sEnd .sign{margin-top:34px;font-size:15px;letter-spacing:.12em;color:var(--soft);text-transform:uppercase;}
 
 /* final */
@@ -291,8 +295,8 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
   line-height:1.18;letter-spacing:-.02em;word-break:keep-all;min-height:1.25em;}
 #sFinal .final-copy.typing::after{content:"";display:inline-block;width:.07em;height:.84em;margin-left:.08em;
   background:var(--gold);vertical-align:-.06em;animation:cursorBlink .75s step-end infinite;}
-#sFinal .final-meta{margin-top:78px;opacity:0;transform:translateY(42px);
-  transition:opacity 1.25s ease,transform 1.55s cubic-bezier(.2,.7,.15,1);}
+#sFinal .final-meta{margin-top:78px;opacity:0;transform:translateY(58px);
+  transition:opacity 1.85s ease,transform 2.25s cubic-bezier(.2,.7,.15,1);}
 #sFinal.final-ready .final-meta{opacity:1;transform:translateY(0);}
 #sFinal .final-title{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(22px,2.7vw,34px);font-weight:700;color:var(--ink);
   line-height:1.22;letter-spacing:.08em;word-break:keep-all;}
@@ -558,21 +562,18 @@ section('s5b', w=>{
 const photoSections = C.lecturePhotoSections || [];
 section('s4a', w=>{
   const p = photoSections[0] || {};
-  w.innerHTML='<div class="ey rv">'+esc(p.title||'AI 특강 현장')+'</div>'+
-    '<h2 class="big rv d1" style="font-family:\'Pretendard\',\'Apple SD Gothic Neo\',\'Noto Sans KR\',sans-serif;font-weight:800;letter-spacing:0;font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.sectionTitle||p.subtitle||'강의 스케치')+'</h2>';
+  w.innerHTML='<div class="ey rv">'+esc(p.title||'AI 특강 현장')+'</div>';
   if((p.images||[]).length) w.appendChild(gallery(p.images,'rphoto','photos'));
 }, 'PART 1 · 강의 스케치', '05-3');
 
 section('s4b', w=>{
   const p = photoSections[1] || {};
-  w.innerHTML='<div class="ey rv">'+esc(p.title||'AI 특강 현장')+'</div>'+
-    '<h2 class="big rv d1" style="font-family:\'Pretendard\',\'Apple SD Gothic Neo\',\'Noto Sans KR\',sans-serif;font-weight:800;letter-spacing:0;font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.sectionTitle||p.subtitle||'강의 스케치')+'</h2>';
+  w.innerHTML='<div class="ey rv">'+esc(p.title||'AI 특강 현장')+'</div>';
   if((p.images||[]).length) w.appendChild(gallery(p.images,'rphoto','photos'));
 }, 'PART 1 · 강의 스케치', '05-4');
 
 section('s5c', w=>{
-  w.innerHTML='<div class="ey rv">강의 후 반응</div>'+
-    '<h2 class="big rv d1" style="font-size:clamp(24px,3vw,36px);margin-bottom:26px;">참여자 후기</h2>';
+  w.innerHTML='<div class="ey rv">강의 후기</div>';
   const wrap=document.createElement('div'); wrap.className='review-showcase rv d2';
   const proof=document.createElement('div'); proof.className='survey-proof';
   proof.innerHTML='<div class="survey-proof-head">실제 설문 캡처</div>';
@@ -591,8 +592,7 @@ section('s5c', w=>{
 }, 'PART 1 · 후기', '05-5');
 
 section('s5d', w=>{
-  w.innerHTML='<div class="ey rv">대표 후기</div>'+
-    '<h2 class="big rv d1" style="font-size:clamp(24px,3vw,36px);margin-bottom:28px;">교육생이 남긴 한 줄 반응</h2>';
+  w.innerHTML='<div class="ey rv">대표 후기</div>';
   const lines=document.createElement('div'); lines.className='review-lines rv d2';
   const escapeReg=v=>String(v).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
   const markReview=(txt,phrases=[])=>{
@@ -611,7 +611,7 @@ section('s5d', w=>{
   });
   const foot=document.createElement('div'); foot.className='review-footnote'; foot.textContent=esc(C.lectureReviewFootnote||'네이버 설문 응답 일부 발췌');
   w.appendChild(lines); w.appendChild(foot);
-}, 'PART 1 · 대표 후기', '05-6');
+}, 'PART 1 · 후기', '05-6');
 
 /* ───── 06 APP CHAPTER ───── */
 section('s6', w=>{
@@ -725,7 +725,7 @@ section('sEnd', w=>{
       .replace('더 쉬운 안내수단','<span class="g">더 쉬운 안내수단</span>')
       .replace('개인의 활용 경험을 넘어','<span class="g">개인의 활용 경험을 넘어</span>')
       .replace('현장에서 쓰일 수 있는 결과물','<span class="g">현장에서 쓰일 수 있는 결과물</span>');
-    const cls='para'+((i===2||i===4)?' gap':'')+(i===lines.length-1?' last':'');
+    const cls='para'+((i===2||i===4)?' gap':'');
     return '<span class="'+cls+'">'+t+'</span>';
   }).join('');
   html+='</p>';
@@ -765,7 +765,7 @@ function runFinalType(sec){
     }else{
       el.classList.remove('typing');
       el.dataset.done='1';
-      sec.classList.add('final-ready');
+      setTimeout(()=>sec.classList.add('final-ready'),850);
     }
   };
   tick();
