@@ -241,11 +241,11 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 
 /* keep dense image pages inside the presentation viewport */
 #s5a,#s5b,#s7,#s8{padding-top:8vh;padding-bottom:6vh;}
-#s5a .gal.pair2x2 .frame{height:clamp(145px,23vh,230px);aspect-ratio:auto;}
+#s5a .gal.pair2x2 .frame{height:clamp(190px,31vh,330px);aspect-ratio:auto;}
 #s5b .practice-feature-grid{grid-template-rows:1fr 1fr;height:min(58vh,640px);}
 #s7{padding-top:7vh;padding-bottom:5vh;}
-#s7 .book-proof{max-width:1120px;gap:14px;}
-#s7 .book-proof .frame{height:clamp(240px,39vh,400px);aspect-ratio:auto;}
+#s7 .book-proof{max-width:1280px;gap:18px;}
+#s7 .book-proof .frame{height:clamp(300px,48vh,520px);aspect-ratio:auto;}
 #s7 .book-pain-title{margin:24px 0 10px;font-size:clamp(16px,1.6vw,22px);}
 #s7 .book-pains .p{padding:12px 12px;font-size:clamp(14px,1.4vw,18px);}
 #s8 .app-preview-wrap .gal.app{gap:16px;}
@@ -377,6 +377,73 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 const C = (typeof CONTENT !== 'undefined') ? CONTENT : (window.CONTENT || {});
 const app = document.getElementById('app');
 const esc = s => String(s==null?"":s);
+let sharedAudioCtx;
+function getAudioCtx(){
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if(!AudioContext) return null;
+  sharedAudioCtx = sharedAudioCtx || new AudioContext();
+  if(sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
+  return sharedAudioCtx;
+}
+function playTone(freq,duration,type='sine',gainValue=.02,delay=0){
+  try{
+    const ctx = getAudioCtx();
+    if(!ctx) return;
+    const now = ctx.currentTime + delay;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq,now);
+    gain.gain.setValueAtTime(gainValue,now);
+    gain.gain.exponentialRampToValueAtTime(.0001,now+duration);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now+duration);
+  }catch(e){}
+}
+function playLandingSfx(delay=0){
+  try{
+    const ctx = getAudioCtx();
+    if(!ctx) return;
+    const now = ctx.currentTime + delay;
+    const dur = 2.2;
+    const noiseBuffer = ctx.createBuffer(1, Math.floor(ctx.sampleRate * dur), ctx.sampleRate);
+    const data = noiseBuffer.getChannelData(0);
+    for(let i=0;i<data.length;i++) data[i] = (Math.random()*2-1) * (1 - i/data.length);
+    const noise = ctx.createBufferSource();
+    const filter = ctx.createBiquadFilter();
+    const noiseGain = ctx.createGain();
+    noise.buffer = noiseBuffer;
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(760, now);
+    filter.frequency.exponentialRampToValueAtTime(140, now + dur);
+    noiseGain.gain.setValueAtTime(.0001, now);
+    noiseGain.gain.linearRampToValueAtTime(.095, now + .18);
+    noiseGain.gain.exponentialRampToValueAtTime(.0001, now + dur);
+    noise.connect(filter);
+    filter.connect(noiseGain);
+    noiseGain.connect(ctx.destination);
+    noise.start(now);
+    noise.stop(now + dur);
+
+    const rumble = ctx.createOscillator();
+    const rumbleGain = ctx.createGain();
+    rumble.type = 'sawtooth';
+    rumble.frequency.setValueAtTime(120, now);
+    rumble.frequency.exponentialRampToValueAtTime(46, now + 1.25);
+    rumbleGain.gain.setValueAtTime(.0001, now);
+    rumbleGain.gain.linearRampToValueAtTime(.035, now + .08);
+    rumbleGain.gain.exponentialRampToValueAtTime(.0001, now + 1.65);
+    rumble.connect(rumbleGain);
+    rumbleGain.connect(ctx.destination);
+    rumble.start(now);
+    rumble.stop(now + 1.7);
+
+    playTone(58,.18,'sine',.055,delay+.95);
+    playTone(42,.24,'triangle',.035,delay+1.08);
+  }catch(e){}
+}
 
 /* image frame with graceful placeholder */
 function frame(item, ratio){
@@ -463,30 +530,11 @@ function section(id, builder, folioL, folioR){
 section('s0', w=>{
   const o=C.opening||{};
   const titleText = (o.lines||[])[0] || '';
+  const landingAt = titleText.indexOf('착륙');
   const p=document.createElement('p');
   p.className='line opening-title';
   p.setAttribute('aria-live','polite');
   w.appendChild(p);
-  let audioCtx;
-  const playTone=(freq,duration,type='sine',gainValue=.02,delay=0)=>{
-    try{
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if(!AudioContext) return;
-      audioCtx = audioCtx || new AudioContext();
-      if(audioCtx.state === 'suspended') audioCtx.resume();
-      const now = audioCtx.currentTime + delay;
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = type;
-      osc.frequency.setValueAtTime(freq,now);
-      gain.gain.setValueAtTime(gainValue,now);
-      gain.gain.exponentialRampToValueAtTime(.0001,now+duration);
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      osc.start(now);
-      osc.stop(now+duration);
-    }catch(e){}
-  };
   const playTypeTick=i=>playTone(620+(i%4)*55,.035,'triangle',.012);
   const playDone=()=>{ playTone(880,.10,'sine',.02); playTone(1320,.12,'sine',.014,.08); };
   const b=document.createElement('button'); b.className='startbtn rv d4';
@@ -504,8 +552,13 @@ section('s0', w=>{
     playTone(520,.06,'triangle',.018);
     p.classList.add('visible','typing');
     let i=0;
+    let landingPlayed=false;
     const tick=()=>{
       p.textContent=titleText.slice(0,i);
+      if(!landingPlayed && landingAt >= 0 && i >= landingAt + 1){
+        landingPlayed=true;
+        playLandingSfx();
+      }
       if(i>0 && i<titleText.length && i%2===0) playTypeTick(i);
       i += 1;
       if(i<=titleText.length){
@@ -785,11 +838,17 @@ function runFinalType(sec){
   const el=sec.querySelector('.final-copy');
   if(!el || el.dataset.done==='1') return;
   const text=el.dataset.finalCopy || '';
+  const landingAt = text.indexOf('착륙');
   el.textContent='';
   el.classList.add('typing');
   let i=0;
+  let landingPlayed=false;
   const tick=()=>{
     el.textContent=text.slice(0,i);
+    if(!landingPlayed && landingAt >= 0 && i >= landingAt + 1){
+      landingPlayed=true;
+      playLandingSfx();
+    }
     i += 1;
     if(i<=text.length){
       setTimeout(tick,85);
