@@ -107,10 +107,6 @@ const CONTENT = {
   lectureReviews: [            // 후기 텍스트 (원하는 만큼 추가/삭제)
   ],
   lectureReviewImages: [       // 후기 캡처 이미지
-    { src: "assets/lectures/review-ax-01.jpg" },
-    { src: "assets/lectures/review-ax-02.jpg" },
-    { src: "assets/lectures/review-west-01.jpg" },
-    { src: "assets/lectures/review-west-02.jpg" }
   ],
   lectureReviewProofImages: [
     { src: "assets/lectures/review-difficulty.png", label: "매우 쉽다 40%, 쉽다 30%, 적절했다 30%" },
@@ -165,7 +161,7 @@ const CONTENT = {
     big: ["앱 화면 미리보기"],
     note: "",
     buttonLabel: "앱 열기",
-    link: "https://example.com",
+    link: "https://1023am0645-pixel.github.io/longtermcare-guide/",
     images: [
       { src: "assets/app/app-01.png" },
       { src: "assets/app/app-02.png" },
@@ -197,11 +193,11 @@ const CONTENT = {
     solutionLabel: "나만의 AI 회사",
     solutionSub: "운영 기반 마련",
     reasonText: "강의와 AX 활동을 한 번 하고 끝내지 않고, 기록하고 분석하며 다음 강의로 이어가기 위한 개인 AI 업무공간입니다.",
-    reasonImage: { src: "assets/studio/studio-reason.jpg", caption: "HA:YEON AI STUDIO" },
+    reasonImage: { src: "assets/studio/studio-reason.png", caption: "HA:YEON AI STUDIO" },
     manages: ["강의 기획과 교안 제작","활동 기록과 후기 분석","결과보고와 성과 정리","제작 앱 점검과 관리"],
     assistNote: ["기록하고, 분석하고, 다음 강의로 이어갈 관리 흐름이 필요했습니다."],
     screens: [
-      { src: "assets/studio/studio-01.jpg", caption: "HA:YEON AI STUDIO" }
+      { src: "assets/studio/studio-01.png", caption: "HA:YEON AI STUDIO" }
     ]
   },
 

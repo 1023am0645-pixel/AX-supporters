@@ -276,27 +276,25 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .checks li .bx{width:26px;height:26px;border:2.5px solid var(--gold);border-radius:6px;flex:none;}
 
 /* closing */
-#sEnd{justify-content:center;text-align:center;background:
+#sEnd{justify-content:center;align-items:center;text-align:center;background:
   radial-gradient(130% 90% at 50% 8%,rgba(201,168,106,.06),transparent 60%),
   radial-gradient(120% 80% at 50% 100%,rgba(201,168,106,.05),transparent 55%),
-  #211f1d;
-  padding:0;}
+  #1c1b1a;
+  padding:8vh 6vw;}
 #sEnd .folio{display:none;}
-#sEnd .wrap{max-width:1360px;height:100vh;display:flex;justify-content:center;align-items:flex-start;}
-#sEnd .ep-page{width:100%;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;
-  padding-top:clamp(150px,14.2vh,205px);}
+#sEnd .wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;}
+#sEnd .ep-page{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;}
 #sEnd .ep-eyebrow{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
-  font-size:14px;letter-spacing:.42em;font-weight:600;color:#b08d52;text-transform:uppercase;
-  margin-bottom:clamp(74px,7.6vh,108px);padding-left:.42em;}
-#sEnd .ep-copy{font-family:'Noto Serif KR','Pretendard',serif;word-break:keep-all;overflow-wrap:normal;}
-#sEnd .ep-copy p{margin:0;}
-#sEnd .ep-copy .ep-lead{font-weight:300;font-size:clamp(22px,1.75vw,28px);line-height:1.9;color:#9a9186;
-  margin-bottom:clamp(76px,7vh,96px);}
-#sEnd .ep-copy .ep-focal{font-weight:500;font-size:clamp(40px,4.15vw,58px);line-height:1.52;letter-spacing:-.01em;color:#ece2d6;
-  margin-bottom:clamp(24px,2.6vh,36px);max-width:1260px;}
-#sEnd .ep-copy .ep-tail{font-weight:300;font-size:clamp(22px,1.75vw,28px);line-height:1.9;color:#9a9186;}
-#sEnd .ep-hl{color:#c9a86a;font-weight:500;}
-#sEnd .ep-copy .ep-rule{width:54px;height:1px;background:#b08d52;opacity:.72;margin:0 auto clamp(58px,5.6vh,74px);}
+  font-size:12px;letter-spacing:.42em;font-weight:600;color:#b08d52;text-transform:uppercase;
+  margin-bottom:clamp(28px,5vh,46px);padding-left:.42em;}
+#sEnd .ep-lead{font-family:'Noto Serif KR',serif;font-weight:300;word-break:keep-all;overflow-wrap:normal;
+  font-size:clamp(15px,1.5vw,18px);line-height:1.9;color:#9a9186;margin-bottom:clamp(22px,3.4vh,34px);}
+#sEnd .ep-focal{font-family:'Noto Serif KR',serif;font-weight:500;word-break:keep-all;overflow-wrap:normal;
+  font-size:clamp(23px,3vw,34px);line-height:1.55;letter-spacing:-.01em;color:#ece2d6;margin-bottom:clamp(26px,4.2vh,42px);}
+#sEnd .ep-hl{color:#c9a86a;font-weight:600;}
+#sEnd .ep-rule{width:38px;height:1px;background:#b08d52;opacity:.55;margin:0 auto clamp(26px,4.2vh,42px);}
+#sEnd .ep-tail{font-family:'Noto Serif KR',serif;font-weight:300;word-break:keep-all;overflow-wrap:normal;
+  font-size:clamp(15px,1.55vw,19px);line-height:1.9;color:#9a9186;}
 
 /* final */
 #sFinal{justify-content:center;text-align:center;background:
@@ -728,21 +726,12 @@ section('s11', w=>{
 
 /* ───── 12 CLOSING ───── */
 section('sEnd', w=>{
-  const cl=C.closing||{};
-  const lines=cl.lines||[];
-  const decorate=ln=>esc(ln)
-      .replace('업무도구','<span class="ep-hl">업무도구</span>')
-      .replace('더 쉬운 안내수단','<span class="ep-hl">더 쉬운 안내수단</span>')
-      .replace('가능성','<span class="ep-hl">가능성</span>')
-      .replace('개인의 활용 경험에 머무르지 않고','<span class="ep-hl">개인의 활용 경험에 머무르지 않고</span>')
-      .replace('현장에서 쓰일 수 있는 결과물','<span class="ep-hl">현장에서 쓰일 수 있는 결과물</span>');
-  const group=(cls,items)=>'<p class="'+cls+'">'+items.map(decorate).join('<br>')+'</p>';
-  let html='<div class="ep-page ep-copy">';
-  html+='<div class="ep-eyebrow rv">EPILOGUE</div>';
-  html+=group('ep-lead rv d1', lines.slice(0,2));
-  html+=group('ep-focal rv d2', lines.slice(2,5));
+  let html='<div class="ep-page">';
+  html+='<div class="ep-eyebrow rv">Epilogue</div>';
+  html+='<p class="ep-lead rv d1">이번 AX-서포터즈 활동은<br>AI를 배우는 데서 멈추지 않고</p>';
+  html+='<p class="ep-focal rv d2">직원에게는 <span class="ep-hl">업무도구</span>로,<br>국민에게는 <span class="ep-hl">더 쉬운 안내수단</span>으로<br>이어갈 가능성을 확인하는 과정이었습니다.</p>';
   html+='<div class="ep-rule rv d3"></div>';
-  html+=group('ep-tail rv d4', lines.slice(5,9));
+  html+='<p class="ep-tail rv d4">남은 기간에는 개인의 활용 경험에 머무르지 않고,<br>현장에서 쓰일 수 있는 결과물로 더 구체화해가겠습니다.</p>';
   html+='</div>';
   w.innerHTML=html;
 }, 'Epilogue', '');
