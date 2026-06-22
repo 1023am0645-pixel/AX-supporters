@@ -7,7 +7,7 @@
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --cream:#1f1f1f;
@@ -277,22 +277,24 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 
 /* closing */
 #sEnd{justify-content:center;text-align:center;background:
-  radial-gradient(90% 70% at 50% 0%,rgba(166,138,110,.09),transparent 58%),var(--cream);
-  padding-top:11vh;padding-bottom:9vh;}
+  radial-gradient(130% 90% at 50% 8%,rgba(201,168,106,.06),transparent 60%),
+  radial-gradient(120% 80% at 50% 100%,rgba(201,168,106,.05),transparent 55%),
+  #1c1b1a;
+  padding-top:12vh;padding-bottom:12vh;}
 #sEnd .folio{display:none;}
-#sEnd .wrap{max-width:1080px;}
-#sEnd .pre{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;letter-spacing:.52em;font-weight:800;
-  color:var(--gold);text-transform:uppercase;margin-bottom:62px;}
-#sEnd .closing-copy{font-family:'Noto Serif KR','Pretendard',serif;color:var(--ink);word-break:keep-all;overflow-wrap:normal;}
-#sEnd .closing-copy p{margin:0;}
-#sEnd .closing-copy .intro{font-size:clamp(20px,1.75vw,27px);font-weight:500;color:var(--soft);line-height:1.9;}
-#sEnd .closing-copy .core{margin:66px auto 0;font-size:clamp(36px,4.2vw,58px);font-weight:700;line-height:1.42;letter-spacing:-.015em;max-width:25ch;}
-#sEnd .closing-copy .next{margin:58px auto 0;font-size:clamp(19px,1.85vw,28px);font-weight:500;line-height:1.8;color:var(--soft);max-width:36ch;}
-#sEnd .closing-copy .g{color:var(--gold);font-weight:800;}
-#sEnd .closing-copy .core .g{font-size:1.04em;}
-#sEnd .closing-copy .next .g{font-size:1.02em;}
-#sEnd .closing-copy .rule{width:66px;height:2px;background:var(--gold);margin:58px auto 0;}
-#sEnd .sign{margin-top:34px;font-size:15px;letter-spacing:.12em;color:var(--soft);text-transform:uppercase;}
+#sEnd .wrap{max-width:760px;}
+#sEnd .ep-page{width:100%;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;}
+#sEnd .ep-eyebrow{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  font-size:12px;letter-spacing:.42em;font-weight:600;color:#b08d52;text-transform:uppercase;
+  margin-bottom:46px;padding-left:.42em;}
+#sEnd .ep-copy{font-family:'Noto Serif KR','Pretendard',serif;word-break:keep-all;overflow-wrap:normal;}
+#sEnd .ep-copy p{margin:0;}
+#sEnd .ep-lead{font-weight:300;font-size:clamp(15px,1.5vw,18px);line-height:1.95;color:#9a9186;margin-bottom:34px;}
+#sEnd .ep-focal{font-weight:500;font-size:clamp(26px,3.6vw,40px);line-height:1.55;letter-spacing:-.01em;color:#ece2d6;margin-bottom:46px;}
+#sEnd .ep-tail{font-weight:300;font-size:clamp(15px,1.55vw,19px);line-height:1.95;color:#9a9186;}
+#sEnd .ep-hl{color:#c9a86a;font-weight:600;}
+#sEnd .ep-focal .ep-hl{font-size:1.02em;}
+#sEnd .ep-rule{width:38px;height:1px;background:#b08d52;opacity:.55;margin:0 auto 42px;}
 
 /* final */
 #sFinal{justify-content:center;text-align:center;background:
@@ -727,17 +729,18 @@ section('sEnd', w=>{
   const cl=C.closing||{};
   const lines=cl.lines||[];
   const decorate=ln=>esc(ln)
-      .replace('업무도구','<span class="g">업무도구</span>')
-      .replace('더 쉬운 안내수단','<span class="g">더 쉬운 안내수단</span>')
-      .replace('가능성','<span class="g">가능성</span>')
-      .replace('개인의 활용 경험에 머무르지 않고','<span class="g">개인의 활용 경험에 머무르지 않고</span>')
-      .replace('현장에서 쓰일 수 있는 결과물','<span class="g">현장에서 쓰일 수 있는 결과물</span>');
+      .replace('업무도구','<span class="ep-hl">업무도구</span>')
+      .replace('더 쉬운 안내수단','<span class="ep-hl">더 쉬운 안내수단</span>')
+      .replace('가능성','<span class="ep-hl">가능성</span>')
+      .replace('개인의 활용 경험에 머무르지 않고','<span class="ep-hl">개인의 활용 경험에 머무르지 않고</span>')
+      .replace('현장에서 쓰일 수 있는 결과물','<span class="ep-hl">현장에서 쓰일 수 있는 결과물</span>');
   const group=(cls,items)=>'<p class="'+cls+'">'+items.map(decorate).join('<br>')+'</p>';
-  let html='<div class="pre rv">EPILOGUE</div><div class="closing-copy rv d1">';
-  html+=group('intro', lines.slice(0,2));
-  html+=group('core', lines.slice(2,5));
-  html+='<div class="rule rv d2"></div>';
-  html+=group('next', lines.slice(5,9));
+  let html='<div class="ep-page ep-copy">';
+  html+='<div class="ep-eyebrow rv">EPILOGUE</div>';
+  html+=group('ep-lead rv d1', lines.slice(0,2));
+  html+=group('ep-focal rv d2', lines.slice(2,5));
+  html+='<div class="ep-rule rv d3"></div>';
+  html+=group('ep-tail rv d4', lines.slice(5,9));
   html+='</div>';
   w.innerHTML=html;
 }, 'Epilogue', '');
