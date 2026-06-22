@@ -53,7 +53,7 @@ const CONTENT = {
     items: [
       {
         label: "대상",
-        text: ["1. 대전세종충청지역본부 AX-인권플루언서", "2. 대전서부지사 청렴실천단"]
+        text: ["대전세종충청지역본부 AX-인권플루언서", "대전서부지사 청렴실천단"]
       },
       {
         label: "목적",
@@ -61,11 +61,11 @@ const CONTENT = {
       },
       {
         label: "내용",
-        text: ["Gemini · Google Flow · Canva · 프롬프트 · 맞춤설정"]
+        text: ["Gemini · Google Flow · Canva", "프롬프트 · 맞춤설정"]
       },
       {
         label: "방식",
-        text: ["교육생이 직접 적용해보는", "참여형 실습"]
+        text: ["교육생이 직접 적용해보는 참여형 실습"]
       }
     ]
   },
