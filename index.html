@@ -127,6 +127,7 @@ figure{margin:0;}
 .frame.rbook{aspect-ratio:5/7;}
 .frame img{width:100%;height:100%;object-fit:cover;display:block;}
 .frame.book-frame img{object-fit:contain;background:var(--cream2);}
+.gal.pair2x2 .frame img{object-fit:contain;background:var(--cream2);}
 .frame .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
   border:1px dashed #D8CDB3;border-radius:10px;background:repeating-linear-gradient(135deg,#FBF7EE,#FBF7EE 12px,#F6F0E2 12px,#F6F0E2 24px);
   color:var(--soft);text-align:center;padding:14px;}
@@ -182,6 +183,15 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .review-line .hi{color:var(--gold);font-size:calc(1em + 2pt);font-weight:900;}
 .review-footnote{margin-top:16px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;color:var(--soft);
   letter-spacing:.03em;text-align:right;}
+#s5d{padding-top:7vh;padding-bottom:5vh;}
+#s5d .wrap{max-width:1120px;}
+#s5d .review-lines{gap:11px;max-width:1080px;}
+#s5d .review-line{gap:13px;padding:14px 20px;border-radius:7px;}
+#s5d .review-line .n{font-size:15px;}
+#s5d .review-line p{font-size:clamp(13px,1.05vw,16px);line-height:1.38;font-weight:650;}
+#s5d .review-line .q{font-size:1em;}
+#s5d .review-line .hi{font-size:1.04em;font-weight:850;}
+#s5d .review-footnote{margin-top:9px;font-size:12px;}
 
 /* why-app */
 #s7{padding-top:10vh;padding-bottom:8vh;}
@@ -228,6 +238,18 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .practice-feature-grid .left-top,.practice-feature-grid .left-bottom{height:100%;display:flex;flex-direction:column;}
 .practice-feature-grid .left-top .frame,.practice-feature-grid .left-bottom .frame{height:100%;aspect-ratio:auto;flex:1;}
 .practice-feature-grid figure{min-width:0;}
+
+/* keep dense image pages inside the presentation viewport */
+#s5a,#s5b,#s7,#s8{padding-top:8vh;padding-bottom:6vh;}
+#s5a .gal.pair2x2 .frame{height:clamp(145px,23vh,230px);aspect-ratio:auto;}
+#s5b .practice-feature-grid{grid-template-rows:1fr 1fr;height:min(58vh,640px);}
+#s7{padding-top:7vh;padding-bottom:5vh;}
+#s7 .book-proof{max-width:1120px;gap:14px;}
+#s7 .book-proof .frame{height:clamp(240px,39vh,400px);aspect-ratio:auto;}
+#s7 .book-pain-title{margin:24px 0 10px;font-size:clamp(16px,1.6vw,22px);}
+#s7 .book-pains .p{padding:12px 12px;font-size:clamp(14px,1.4vw,18px);}
+#s8 .app-preview-wrap .gal.app{gap:16px;}
+#s8 .app-preview-wrap .gal.app .frame{height:clamp(320px,56vh,540px);aspect-ratio:auto;}
 
 /* app open button */
 .openbtn{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--cream2);
