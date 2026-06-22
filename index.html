@@ -279,22 +279,24 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #sEnd{justify-content:center;text-align:center;background:
   radial-gradient(130% 90% at 50% 8%,rgba(201,168,106,.06),transparent 60%),
   radial-gradient(120% 80% at 50% 100%,rgba(201,168,106,.05),transparent 55%),
-  #1c1b1a;
-  padding-top:12vh;padding-bottom:12vh;}
+  #211f1d;
+  padding:0;}
 #sEnd .folio{display:none;}
-#sEnd .wrap{max-width:760px;}
-#sEnd .ep-page{width:100%;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;}
+#sEnd .wrap{max-width:1360px;height:100vh;display:flex;justify-content:center;align-items:flex-start;}
+#sEnd .ep-page{width:100%;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;
+  padding-top:clamp(150px,14.2vh,205px);}
 #sEnd .ep-eyebrow{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
-  font-size:12px;letter-spacing:.42em;font-weight:600;color:#b08d52;text-transform:uppercase;
-  margin-bottom:46px;padding-left:.42em;}
+  font-size:14px;letter-spacing:.42em;font-weight:600;color:#b08d52;text-transform:uppercase;
+  margin-bottom:clamp(74px,7.6vh,108px);padding-left:.42em;}
 #sEnd .ep-copy{font-family:'Noto Serif KR','Pretendard',serif;word-break:keep-all;overflow-wrap:normal;}
 #sEnd .ep-copy p{margin:0;}
-#sEnd .ep-lead{font-weight:300;font-size:clamp(15px,1.5vw,18px);line-height:1.95;color:#9a9186;margin-bottom:34px;}
-#sEnd .ep-focal{font-weight:500;font-size:clamp(26px,3.6vw,40px);line-height:1.55;letter-spacing:-.01em;color:#ece2d6;margin-bottom:46px;}
-#sEnd .ep-tail{font-weight:300;font-size:clamp(15px,1.55vw,19px);line-height:1.95;color:#9a9186;}
-#sEnd .ep-hl{color:#c9a86a;font-weight:600;}
-#sEnd .ep-focal .ep-hl{font-size:1.02em;}
-#sEnd .ep-rule{width:38px;height:1px;background:#b08d52;opacity:.55;margin:0 auto 42px;}
+#sEnd .ep-copy .ep-lead{font-weight:300;font-size:clamp(22px,1.75vw,28px);line-height:1.9;color:#9a9186;
+  margin-bottom:clamp(76px,7vh,96px);}
+#sEnd .ep-copy .ep-focal{font-weight:500;font-size:clamp(40px,4.15vw,58px);line-height:1.52;letter-spacing:-.01em;color:#ece2d6;
+  margin-bottom:clamp(24px,2.6vh,36px);max-width:1260px;}
+#sEnd .ep-copy .ep-tail{font-weight:300;font-size:clamp(22px,1.75vw,28px);line-height:1.9;color:#9a9186;}
+#sEnd .ep-hl{color:#c9a86a;font-weight:500;}
+#sEnd .ep-copy .ep-rule{width:54px;height:1px;background:#b08d52;opacity:.72;margin:0 auto clamp(58px,5.6vh,74px);}
 
 /* final */
 #sFinal{justify-content:center;text-align:center;background:
