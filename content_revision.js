@@ -48,11 +48,34 @@ const CONTENT = {
     keywords: []
   },
 
+  lectureOverview: {
+    title: ["설명하는 강의보다,", "직접 써보는 강의를 만들었습니다."],
+    items: [
+      {
+        label: "대상",
+        text: ["대전세종충청지역본부 AX-인권플루언서", "대전서부지사 청렴실천단"]
+      },
+      {
+        label: "목적",
+        text: ["AI를 업무에 직접 써보는 경험 제공"]
+      },
+      {
+        label: "내용",
+        text: ["Gemini · Google Flow · Canva · 프롬프트 · 맞춤설정"]
+      },
+      {
+        label: "방식",
+        text: ["업무 예시 중심 참여형 실습"]
+      }
+    ]
+  },
+
   /* ── 04. AI 특강 현장 사진 ─────────────────────────────── */
   lecturePhotoSections: [
     {
       title: "AX-인권플루언서 특강",
       subtitle: "강의 현장 스케치",
+      sectionTitle: "강의 스케치",
       images: [
         { src: "assets/lectures/ax-01.jpg" },
         { src: "assets/lectures/ax-02.jpg" }
@@ -61,6 +84,7 @@ const CONTENT = {
     {
       title: "대전서부지사 청렴실천단 특강",
       subtitle: "강의 현장 스케치",
+      sectionTitle: "강의 스케치",
       images: [
         { src: "assets/lectures/west-01.jpg?v=2" },
         { src: "assets/lectures/west-02.jpg" }
@@ -78,7 +102,7 @@ const CONTENT = {
   lecturePractice: [
     { src: "assets/lectures/practice-ax-01.png" },
     { src: "assets/lectures/practice-ax-02.png" },
-    { src: "assets/lectures/practice-west-02.png" }
+    { src: "assets/lectures/practice-west-02.png?v=2" }
   ],
   lectureReviews: [            // 후기 텍스트 (원하는 만큼 추가/삭제)
   ],

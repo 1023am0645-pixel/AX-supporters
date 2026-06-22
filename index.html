@@ -140,6 +140,17 @@ figure{margin:0;}
 .frame.has-image .img-upload{display:none;}
 figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01em;text-align:center;}
 
+/* lecture overview */
+.lecture-overview{max-width:1180px;margin:0 auto;}
+.overview-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.overview-card{min-height:190px;padding:28px 26px;border-left:1px solid var(--line2);display:flex;flex-direction:column;gap:18px;}
+.overview-card:first-child{border-left:none;}
+.overview-card .n{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:800;color:var(--gold);}
+.overview-card h3{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(18px,1.8vw,25px);
+  font-weight:800;color:var(--ink);letter-spacing:0;}
+.overview-card p{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(15px,1.2vw,18px);
+  font-weight:650;color:var(--muted);line-height:1.65;word-break:keep-all;white-space:pre-line;}
+
 /* reviews */
 .reviews{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px;}
 .review{border-left:4px solid var(--gold);background:var(--cream2);border-radius:0 12px 12px 0;padding:22px 24px;}
@@ -294,6 +305,8 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
   .spoiler-grid{grid-template-columns:1fr;}
   .spoiler-grid .it:nth-child(odd){border-right:none;}
   .gal.photos,.gal.app,.gal.wide{grid-template-columns:1fr 1fr;}
+  .overview-grid{grid-template-columns:1fr;border-bottom:none;}
+  .overview-card{min-height:auto;border-left:none;border-bottom:1px solid var(--line2);padding:22px 0;}
   .reviews{grid-template-columns:1fr;}
   .review-showcase{display:block;}
   .survey-proof-grid{grid-template-columns:1fr;}
@@ -506,21 +519,21 @@ section('s3', w=>{
   w.appendChild(k);
 }, 'PART 1 · 지정과제', '03');
 
-/* ───── 04 LECTURE PHOTOS ───── */
-const photoSections = C.lecturePhotoSections || [];
-section('s4a', w=>{
-  const p = photoSections[0] || {};
-  w.innerHTML='<div class="ey rv">'+esc(p.subtitle||'AI 특강 현장')+'</div>'+
-    '<h2 class="big rv d1" style="font-family:\'Pretendard\',\'Apple SD Gothic Neo\',\'Noto Sans KR\',sans-serif;font-weight:800;letter-spacing:0;font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.title||'강의 현장 스케치')+'</h2>';
-  if((p.images||[]).length) w.appendChild(gallery(p.images,'rphoto','photos'));
-}, 'PART 1 · AI 특강', '04-1');
-
-section('s4b', w=>{
-  const p = photoSections[1] || {};
-  w.innerHTML='<div class="ey rv">'+esc(p.subtitle||'AI 특강 현장')+'</div>'+
-    '<h2 class="big rv d1" style="font-family:\'Pretendard\',\'Apple SD Gothic Neo\',\'Noto Sans KR\',sans-serif;font-weight:800;letter-spacing:0;font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.title||'강의 현장 스케치')+'</h2>';
-  if((p.images||[]).length) w.appendChild(gallery(p.images,'rphoto','photos'));
-}, 'PART 1 · AI 특강', '04-2');
+/* ───── 04 LECTURE OVERVIEW ───── */
+section('s4', w=>{
+  const o=C.lectureOverview||{};
+  w.classList.add('lecture-overview');
+  w.innerHTML=bigLines(o.title||['설명하는 강의보다,','직접 써보는 강의를 만들었습니다.'])
+    .replace('class="big"','class="big rv d1" style="font-size:clamp(28px,4.2vw,52px);margin-bottom:46px;"');
+  const grid=document.createElement('div'); grid.className='overview-grid rv d2';
+  (o.items||[]).forEach((it,i)=>{
+    const card=document.createElement('div'); card.className='overview-card';
+    const lines=Array.isArray(it.text)?it.text:[it.text||''];
+    card.innerHTML='<div class="n">0'+(i+1)+'</div><h3>'+esc(it.label||'')+'</h3><p>'+esc(lines.join('\\n'))+'</p>';
+    grid.appendChild(card);
+  });
+  w.appendChild(grid);
+}, 'PART 1 · 강의 개요', '04');
 
 /* ───── 05 MATERIALS + PRACTICE + REVIEWS ───── */
 section('s5a', w=>{
@@ -541,6 +554,22 @@ section('s5b', w=>{
   }
 }, 'PART 1 · 실습 결과물', '05-2');
 
+/* ───── LECTURE PHOTOS ───── */
+const photoSections = C.lecturePhotoSections || [];
+section('s4a', w=>{
+  const p = photoSections[0] || {};
+  w.innerHTML='<div class="ey rv">'+esc(p.title||'AI 특강 현장')+'</div>'+
+    '<h2 class="big rv d1" style="font-family:\'Pretendard\',\'Apple SD Gothic Neo\',\'Noto Sans KR\',sans-serif;font-weight:800;letter-spacing:0;font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.sectionTitle||p.subtitle||'강의 스케치')+'</h2>';
+  if((p.images||[]).length) w.appendChild(gallery(p.images,'rphoto','photos'));
+}, 'PART 1 · 강의 스케치', '05-3');
+
+section('s4b', w=>{
+  const p = photoSections[1] || {};
+  w.innerHTML='<div class="ey rv">'+esc(p.title||'AI 특강 현장')+'</div>'+
+    '<h2 class="big rv d1" style="font-family:\'Pretendard\',\'Apple SD Gothic Neo\',\'Noto Sans KR\',sans-serif;font-weight:800;letter-spacing:0;font-size:clamp(24px,3vw,38px);margin-bottom:30px;">'+esc(p.sectionTitle||p.subtitle||'강의 스케치')+'</h2>';
+  if((p.images||[]).length) w.appendChild(gallery(p.images,'rphoto','photos'));
+}, 'PART 1 · 강의 스케치', '05-4');
+
 section('s5c', w=>{
   w.innerHTML='<div class="ey rv">강의 후 반응</div>'+
     '<h2 class="big rv d1" style="font-size:clamp(24px,3vw,36px);margin-bottom:26px;">참여자 후기</h2>';
@@ -559,7 +588,7 @@ section('s5c', w=>{
   });
   proof.appendChild(proofGrid);
   wrap.appendChild(proof); w.appendChild(wrap);
-}, 'PART 1 · 후기', '05-3');
+}, 'PART 1 · 후기', '05-5');
 
 section('s5d', w=>{
   w.innerHTML='<div class="ey rv">대표 후기</div>'+
@@ -582,7 +611,7 @@ section('s5d', w=>{
   });
   const foot=document.createElement('div'); foot.className='review-footnote'; foot.textContent=esc(C.lectureReviewFootnote||'네이버 설문 응답 일부 발췌');
   w.appendChild(lines); w.appendChild(foot);
-}, 'PART 1 · 대표 후기', '05-4');
+}, 'PART 1 · 대표 후기', '05-6');
 
 /* ───── 06 APP CHAPTER ───── */
 section('s6', w=>{
