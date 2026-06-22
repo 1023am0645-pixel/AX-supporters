@@ -281,15 +281,17 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
   padding-top:11vh;padding-bottom:9vh;}
 #sEnd .folio{display:none;}
 #sEnd .wrap{max-width:1080px;}
-#sEnd .pre{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:18px;letter-spacing:.48em;font-weight:800;
-  color:var(--gold);text-transform:uppercase;margin-bottom:76px;}
+#sEnd .pre{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;letter-spacing:.52em;font-weight:800;
+  color:var(--gold);text-transform:uppercase;margin-bottom:62px;}
 #sEnd .closing-copy{font-family:'Noto Serif KR','Pretendard',serif;color:var(--ink);word-break:keep-all;overflow-wrap:normal;}
 #sEnd .closing-copy p{margin:0;}
-#sEnd .closing-copy .intro{font-size:clamp(21px,1.9vw,30px);font-weight:500;color:var(--soft);line-height:1.95;}
-#sEnd .closing-copy .core{margin:82px auto 0;font-size:clamp(44px,5.2vw,72px);font-weight:700;line-height:1.33;letter-spacing:-.02em;max-width:20ch;}
-#sEnd .closing-copy .next{margin:72px auto 0;font-size:clamp(22px,2vw,31px);font-weight:500;line-height:1.85;color:var(--soft);max-width:34ch;}
+#sEnd .closing-copy .intro{font-size:clamp(20px,1.75vw,27px);font-weight:500;color:var(--soft);line-height:1.9;}
+#sEnd .closing-copy .core{margin:66px auto 0;font-size:clamp(36px,4.2vw,58px);font-weight:700;line-height:1.42;letter-spacing:-.015em;max-width:25ch;}
+#sEnd .closing-copy .next{margin:58px auto 0;font-size:clamp(19px,1.85vw,28px);font-weight:500;line-height:1.8;color:var(--soft);max-width:36ch;}
 #sEnd .closing-copy .g{color:var(--gold);font-weight:800;}
-#sEnd .closing-copy .rule{width:70px;height:2px;background:var(--gold);margin:70px auto 0;}
+#sEnd .closing-copy .core .g{font-size:1.04em;}
+#sEnd .closing-copy .next .g{font-size:1.02em;}
+#sEnd .closing-copy .rule{width:66px;height:2px;background:var(--gold);margin:58px auto 0;}
 #sEnd .sign{margin-top:34px;font-size:15px;letter-spacing:.12em;color:var(--soft);text-transform:uppercase;}
 
 /* final */
@@ -725,13 +727,17 @@ section('sEnd', w=>{
   const cl=C.closing||{};
   const lines=cl.lines||[];
   const decorate=ln=>esc(ln)
-      .replace('더 쉬운 안내','<span class="g">더 쉬운 안내</span>');
+      .replace('업무도구','<span class="g">업무도구</span>')
+      .replace('더 쉬운 안내수단','<span class="g">더 쉬운 안내수단</span>')
+      .replace('가능성','<span class="g">가능성</span>')
+      .replace('개인의 활용 경험에 머무르지 않고','<span class="g">개인의 활용 경험에 머무르지 않고</span>')
+      .replace('현장에서 쓰일 수 있는 결과물','<span class="g">현장에서 쓰일 수 있는 결과물</span>');
   const group=(cls,items)=>'<p class="'+cls+'">'+items.map(decorate).join('<br>')+'</p>';
   let html='<div class="pre rv">EPILOGUE</div><div class="closing-copy rv d1">';
   html+=group('intro', lines.slice(0,2));
-  html+=group('core', lines.slice(2,4));
+  html+=group('core', lines.slice(2,5));
   html+='<div class="rule rv d2"></div>';
-  html+=group('next', lines.slice(4,6));
+  html+=group('next', lines.slice(5,9));
   html+='</div>';
   w.innerHTML=html;
 }, 'Epilogue', '');
