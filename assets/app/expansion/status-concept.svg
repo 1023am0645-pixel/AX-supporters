@@ -57,9 +57,9 @@
     <rect x="558" y="356" width="546" height="92" rx="20" fill="#e9f5ff"/>
     <circle cx="612" cy="402" r="27" fill="#0f7fc7"/>
     <text class="sans white" x="601" y="412" font-size="26" font-weight="900">03</text>
-    <text class="sans body blueText" x="660" y="392">인정조사 예정</text>
-    <text class="sans muted" x="660" y="424">방문 일정 확인 및 조사 준비 단계</text>
-    <text class="sans small" x="558" y="482">다음 단계: 인정조사 완료 → 심의자료 선정 → 등급판정 결과 확인</text>
+    <text class="sans body blueText" x="660" y="392">인정조사</text>
+    <text class="sans muted" x="660" y="424">방문 조사 진행 단계</text>
+    <text class="sans small" x="558" y="482">다음 단계: 조사완료 → 의사소견서 제출 → 심의자료 선정 → 등급판정 완료</text>
   </g>
 
   <g filter="url(#shadow)">
@@ -76,23 +76,23 @@
     </g>
     <g>
       <circle cx="448" cy="670" r="34" fill="#0f7fc7"/><text class="sans white" x="435" y="681" font-size="28" font-weight="900">03</text>
-      <text class="sans body blueText" x="390" y="732">인정조사 예정</text>
+      <text class="sans body blueText" x="390" y="732">인정조사</text>
     </g>
     <g>
       <circle cx="601" cy="670" r="28" fill="#cbd5e1"/><text class="sans white" x="588" y="680" font-size="25" font-weight="900">04</text>
-      <text class="sans small" x="563" y="732">조사 완료</text>
+      <text class="sans small" x="563" y="732">조사완료</text>
     </g>
     <g>
       <circle cx="754" cy="670" r="28" fill="#cbd5e1"/><text class="sans white" x="741" y="680" font-size="25" font-weight="900">05</text>
-      <text class="sans small" x="706" y="732">심의자료 선정</text>
+      <text class="sans small" x="686" y="732">의사소견서 제출</text>
     </g>
     <g>
       <circle cx="907" cy="670" r="28" fill="#cbd5e1"/><text class="sans white" x="894" y="680" font-size="25" font-weight="900">06</text>
-      <text class="sans small" x="854" y="732">의사소견서 진행</text>
+      <text class="sans small" x="858" y="732">심의자료 선정</text>
     </g>
     <g>
       <circle cx="1058" cy="670" r="28" fill="#cbd5e1"/><text class="sans white" x="1045" y="680" font-size="25" font-weight="900">07</text>
-      <text class="sans small" x="998" y="732">등급판정 결과</text>
+      <text class="sans small" x="998" y="732">등급판정 완료</text>
     </g>
   </g>
 </svg>

@@ -61,7 +61,7 @@ const CONTENT = {
       },
       {
         label: "내용",
-        text: ["Gemini · Google Flow · Canva", "프롬프트 · 맞춤설정"]
+        text: ["Gemini · Google Flow · Canva · 프롬프트 · 맞춤설정"]
       },
       {
         label: "방식",
