@@ -185,13 +185,13 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .review-footnote{margin-top:16px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;color:var(--soft);
   letter-spacing:.03em;text-align:right;}
 #s5d{padding-top:7vh;padding-bottom:5vh;}
-#s5d .wrap{max-width:1680px;}
-#s5d .review-lines{gap:12px;max-width:1540px;width:100%;}
-#s5d .review-line{grid-template-columns:1fr;gap:0;padding:16px 28px;border-radius:8px;}
+#s5d .wrap{max-width:1560px;}
+#s5d .review-lines{gap:10px;max-width:1430px;width:100%;}
+#s5d .review-line{grid-template-columns:1fr;gap:0;padding:14px 24px;border-radius:8px;}
 #s5d .review-line .n{font-size:16px;}
-#s5d .review-line p{font-family:'Batang','바탕','Noto Serif KR',serif;font-style:normal;font-size:clamp(16px,1.28vw,20px);line-height:1.5;font-weight:500;color:#eee4d7;}
-#s5d .review-line .q{font-family:'Batang','바탕','Noto Serif KR',serif;font-style:normal;font-size:1.1em;font-weight:600;}
-#s5d .review-line .hi{font-size:1.05em;font-weight:700;color:#c9a86a;}
+#s5d .review-line p{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-style:normal;font-size:clamp(15px,1.15vw,18px);line-height:1.42;font-weight:600;color:#eee4d7;}
+#s5d .review-line .q{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-style:normal;font-size:1.03em;font-weight:700;}
+#s5d .review-line .hi{font-size:1.03em;font-weight:700;color:#c9a86a;}
 #s5d .review-footnote{margin-top:12px;font-size:12px;}
 
 /* why-app */
@@ -689,14 +689,14 @@ section('s5d', w=>{
   w.innerHTML='';
   const lines=document.createElement('div'); lines.className='review-lines rv d2';
   const escapeReg=v=>String(v).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-  const addSentenceBreaks=txt=>String(txt||"").replace(/\s*\n+\s*/g,"\n").replace(/[ \t]+/g," ").trim();
+  const addSentenceBreaks=txt=>String(txt||"").replace(/\s*\n+\s*/g," ").replace(/\s+/g," ").trim();
   const markReview=(txt,phrases=[])=>{
     txt=addSentenceBreaks(txt);
     const list=[...phrases].sort((a,b)=>b.length-a.length);
-    if(!list.length) return esc(txt).replace(/\n/g,'<br>');
+    if(!list.length) return esc(txt);
     const pattern=new RegExp('('+list.map(escapeReg).join('|')+')','g');
     return String(txt||'').split(pattern).map(part=>
-      list.includes(part)?'<span class="hi">'+esc(part)+'</span>':esc(part).replace(/\n/g,'<br>')
+      list.includes(part)?'<span class="hi">'+esc(part)+'</span>':esc(part)
     ).join('');
   };
   (C.lectureReviewCards||[]).forEach((txt,i)=>{
