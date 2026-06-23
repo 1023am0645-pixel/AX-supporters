@@ -296,6 +296,9 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #s5a .gal.pair2x2 .frame{height:auto;aspect-ratio:16/9;}
 #s5a .gal.pair2x2 .frame img{object-fit:cover;background:var(--cream2);}
 #s5b .practice-feature-grid{grid-template-rows:minmax(0,1fr) minmax(0,1fr);width:min(1040px,100%);max-width:1040px;height:min(46vh,420px);gap:14px;margin:0 auto;}
+#s5b .practice-combined{width:min(1180px,100%);margin:0 auto;}
+#s5b .practice-combined .frame{height:min(62vh,650px);aspect-ratio:16/9;}
+#s5b .practice-combined .frame img{object-fit:contain;background:var(--cream2);}
 #s7{padding-top:7vh;padding-bottom:5vh;}
 #s7 .book-proof{max-width:1080px;gap:18px;}
 #s7 .book-proof .frame{height:auto;aspect-ratio:5/7;}
@@ -631,14 +634,9 @@ section('s5a', w=>{
 section('s5b', w=>{
   w.classList.add('practice-wrap');
   w.innerHTML='<div class="ey rv">실습 결과물 및 공유자료</div>';
-  const list=C.lecturePractice||[];
-  if(list.length){
-    const grid=document.createElement('div'); grid.className='practice-feature-grid rv d2';
-    if(list[0]){ const fig=frame(list[0],'r169'); fig.classList.add('left-top'); grid.appendChild(fig); }
-    if(list[1]){ const fig=frame(list[1],'r169'); fig.classList.add('left-bottom'); grid.appendChild(fig); }
-    if(list[2]){ const fig=frame(list[2],'r169'); fig.classList.add('right-tall'); grid.appendChild(fig); }
-    w.appendChild(grid);
-  }
+  const fig=frame({src:'assets/lectures/practice-combined.png', caption:'실습 결과물 및 공유자료'},'r169');
+  fig.classList.add('practice-combined','rv','d2');
+  w.appendChild(fig);
 }, 'PART 1 · 교육자료', '05-2');
 
 /* ───── LECTURE PHOTOS ───── */
