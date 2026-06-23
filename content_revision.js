@@ -176,7 +176,7 @@ const CONTENT = {
 
   /* ── 08-1. 기존 장기요양 기관찾기 사이트 화면 ───────────── */
   longtermSite: {
-    title: "현재 기관찾기 방식",
+    title: "",
     image: { src: "assets/longterm/longtermcare.png" }
   },
 

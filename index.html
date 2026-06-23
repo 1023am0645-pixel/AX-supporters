@@ -233,7 +233,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #s8a{padding-top:9vh;padding-bottom:6vh;}
 #s8a .wrap{max-width:1080px;}
 #s8a .big{font-size:clamp(30px,4vw,54px);margin-bottom:30px;}
-#s8a .longterm-site-shot{width:min(620px,100%);margin:0 auto;}
+#s8a .longterm-site-shot{width:min(496px,100%);margin:0 auto;}
 #s8a .longterm-site-frame{aspect-ratio:937/1106;background:var(--cream2);box-shadow:0 22px 48px -36px rgba(0,0,0,.85);}
 #s8a .longterm-site-frame img{object-fit:contain;background:#f7f8fb;}
 
@@ -755,7 +755,7 @@ section('s8', w=>{
 
 section('s8a', w=>{
   const lt=C.longtermSite||{};
-  w.innerHTML='<h2 class="big rv d1">'+esc(lt.title||'현재 기관찾기 방식')+'</h2>';
+  w.innerHTML=lt.title?'<h2 class="big rv d1">'+esc(lt.title)+'</h2>':'';
   const fig=frame(lt.image||{}, 'longterm-site-frame');
   fig.classList.add('longterm-site-shot','rv','d2');
   w.appendChild(fig);
