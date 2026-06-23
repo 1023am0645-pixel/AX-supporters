@@ -399,7 +399,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 /* final */
 #sFinal{justify-content:center;text-align:center;background:
   radial-gradient(120% 90% at 50% 0%,rgba(166,138,110,.12),transparent 58%),var(--cream);}
-#sFinal .final-copy{font-family:'Noto Serif KR',serif;font-size:clamp(42px,6.2vw,82px);font-weight:900;color:var(--ink);
+#sFinal .final-copy{font-family:'Noto Serif KR',serif;font-size:clamp(40px,5.3vw,76px);font-weight:900;color:var(--ink);
   line-height:1.18;letter-spacing:-.02em;word-break:keep-all;min-height:1.25em;}
 #sFinal .final-copy.typing::after{content:"";display:inline-block;width:.07em;height:.84em;margin-left:.08em;
   background:var(--gold);vertical-align:-.06em;animation:cursorBlink .75s step-end infinite;}
@@ -683,17 +683,17 @@ section('s5c', w=>{
 }, 'PART 1 · 후기', '05-5');
 
 section('s5d', w=>{
-  w.innerHTML='<div class="ey rv">대표 후기</div>';
+  w.innerHTML='';
   const lines=document.createElement('div'); lines.className='review-lines rv d2';
   const escapeReg=v=>String(v).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-  const addSentenceBreaks=txt=>String(txt||'').replace(/([.!?,]+)\s*/g,'$1\n').trim();
+  const addSentenceBreaks=txt=>String(txt||"").replace(/\s*\n+\s*/g," " ).replace(/\s+/g," " ).trim();
   const markReview=(txt,phrases=[])=>{
     txt=addSentenceBreaks(txt);
     const list=[...phrases].sort((a,b)=>b.length-a.length);
-    if(!list.length) return esc(txt).replace(/\n/g,'<br>');
+    if(!list.length) return esc(txt);
     const pattern=new RegExp('('+list.map(escapeReg).join('|')+')','g');
     return String(txt||'').split(pattern).map(part=>
-      list.includes(part)?'<span class="hi">'+esc(part)+'</span>':esc(part).replace(/\n/g,'<br>')
+      list.includes(part)?'<span class="hi">'+esc(part)+'</span>':esc(part)
     ).join('');
   };
   (C.lectureReviewCards||[]).forEach((txt,i)=>{
