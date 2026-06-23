@@ -230,8 +230,8 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .practice-wrap .frame img{object-fit:contain;background:var(--cream2);}
 
 /* app expansion plan */
-#s8b{padding:7vh 6vw 5vh;}
-#s8b .wrap{max-width:1420px;}
+#s8b,#s8c{padding:7vh 6vw 5vh;}
+#s8b .wrap,#s8c .wrap{max-width:1100px;}
 .expansion-head{margin-bottom:30px;}
 .expansion-head .ey{margin-bottom:10px;}.expansion-head .ey:empty{display:none;}
 .expansion-head .big{font-size:clamp(30px,4vw,54px);margin-bottom:24px;}
@@ -249,10 +249,10 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .extension-desc{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(14px,1.05vw,16px);
   color:var(--muted);font-weight:600;line-height:1.6;white-space:pre-line;margin-bottom:12px;}
 .extension-images{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:12px;margin-top:10px;}
-.extension-shot .frame{height:clamp(150px,22vh,230px);aspect-ratio:auto;border-radius:10px;background:#f7f8fb;}
+.extension-shot .frame{height:clamp(190px,32vh,340px);aspect-ratio:auto;border-radius:10px;background:#f7f8fb;}
 .extension-shot .frame img{object-fit:contain;background:#f7f8fb;}
 .extension-card.status .extension-images{grid-template-columns:1fr;}
-.extension-card.status .extension-shot .frame{height:clamp(230px,33vh,330px);}
+.extension-card.status .extension-shot .frame{height:clamp(250px,42vh,420px);}
 .extension-shot figcaption{margin-top:8px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
   font-size:12.5px;color:var(--soft);font-weight:600;}
 .extension-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px;}
@@ -264,7 +264,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #s5a,#s5b{padding-left:7vw;padding-right:7vw;}
 #s5a .wrap,#s5b .wrap{max-width:1320px;}
 #s5b .wrap{max-width:1120px;}
-#s5a .gal.pair2x2{gap:20px 26px;}
+#s5a .gal.pair2x2{gap:18px 24px;max-width:980px;margin:0 auto;}
 .practice-feature-grid{display:grid;grid-template-columns:1.08fr .92fr;grid-template-rows:auto auto;gap:18px;max-width:1260px;margin:12px auto 0;}
 .practice-feature-grid .left-top{grid-column:1;grid-row:1;}
 .practice-feature-grid .left-bottom{grid-column:1;grid-row:2;}
@@ -276,7 +276,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 
 /* keep dense image pages inside the presentation viewport */
 #s5a,#s5b,#s7,#s8{padding-top:8vh;padding-bottom:6vh;}
-#s5b{justify-content:center;padding-top:8vh;padding-bottom:8vh;}
+#s5b{justify-content:center;padding-top:6vh;padding-bottom:6vh;}
 #s5b .wrap{display:flex;flex-direction:column;align-items:center;}
 #s5b .ey{width:min(1000px,100%);margin:0 auto 24px;text-align:left;}
 #s5a .gal.pair2x2 .frame{height:auto;aspect-ratio:16/9;}
@@ -731,44 +731,46 @@ section('s8', w=>{
 }, 'PART 2 · 화면', '08');
 
 /* ───── 08-1 APP EXPANSION PLAN ───── */
+function buildExpCard(item,i){
+  const card=document.createElement('article');
+  card.className='extension-card rv d2 '+(i===1?'status':'finder');
+  card.innerHTML='<div class="extension-card-head"><h3>'+esc(item.title||'')+'</h3>'+
+    '<span class="extension-badge">'+esc(item.badge||'확장 계획')+'</span></div>'+
+    '<p class="extension-desc">'+esc(item.desc||'')+'</p>';
+  const shots=document.createElement('div'); shots.className='extension-images';
+  (item.images||[]).forEach(imgItem=>{
+    const fig=frame(imgItem,'r1610'); fig.classList.add('extension-shot'); shots.appendChild(fig);
+  });
+  card.appendChild(shots);
+  const tags=document.createElement('div'); tags.className='extension-tags';
+  (item.keywords||[]).forEach(kw=>{
+    const tag=document.createElement('span'); tag.textContent=kw; tags.appendChild(tag);
+  });
+  card.appendChild(tags);
+  return card;
+}
 section('s8b', w=>{
   const ex=C.appExpansion||{};
   const sub=Array.isArray(ex.sub)?ex.sub.join('\n'):(ex.sub||'');
   w.innerHTML='<div class="expansion-head rv d1">'+
-    '<div class="ey">'+esc(ex.label||'확장 계획')+'</div>'+
+    (ex.label?'<div class="ey">'+esc(ex.label)+'</div>':'')+
     '<h2 class="big">'+esc(ex.title||'다음 단계')+'</h2>'+
     '<p class="expansion-sub">'+esc(sub)+'</p>'+
     '</div>';
-  const grid=document.createElement('div'); grid.className='expansion-grid rv d2';
-  (ex.apps||[]).forEach((item,i)=>{
-    const card=document.createElement('article');
-    card.className='extension-card '+(i===1?'status':'finder');
-    card.innerHTML='<div class="extension-card-head"><h3>'+esc(item.title||'')+'</h3>'+
-      '<span class="extension-badge">'+esc(item.badge||'확장 계획')+'</span></div>'+
-      '<p class="extension-desc">'+esc(item.desc||'')+'</p>';
+  const apps=ex.apps||[];
+  if(apps[0]) w.appendChild(buildExpCard(apps[0],0));
+}, 'PART 2 · 확장 계획', '08-1');
 
-    const shots=document.createElement('div'); shots.className='extension-images';
-    (item.images||[]).forEach(imgItem=>{
-      const fig=frame(imgItem,'r1610');
-      fig.classList.add('extension-shot');
-      shots.appendChild(fig);
-    });
-    card.appendChild(shots);
-
-    const tags=document.createElement('div'); tags.className='extension-tags';
-    (item.keywords||[]).forEach(kw=>{
-      const tag=document.createElement('span'); tag.textContent=kw; tags.appendChild(tag);
-    });
-    card.appendChild(tags);
-    grid.appendChild(card);
-  });
-  w.appendChild(grid);
+section('s8c', w=>{
+  const ex=C.appExpansion||{};
+  const apps=ex.apps||[];
+  if(apps[1]) w.appendChild(buildExpCard(apps[1],1));
   const footer=Array.isArray(ex.footer)?ex.footer.join('\n'):(ex.footer||'');
   if(footer){
     const f=document.createElement('div'); f.className='extension-footer rv d3'; f.textContent=footer;
     w.appendChild(f);
   }
-}, 'PART 2 · 확장 계획', '08-1');
+}, 'PART 2 · 확장 계획', '08-2');
 
 /* ───── 09 STUDIO CHAPTER ───── */
 section('s9', w=>{
