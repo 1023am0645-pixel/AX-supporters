@@ -290,9 +290,9 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 
 /* keep dense image pages inside the presentation viewport */
 #s5a,#s5b,#s7,#s8{padding-top:8vh;padding-bottom:6vh;}
-#s5b{justify-content:center;padding-top:5vh;padding-bottom:5vh;}
+#s5b{justify-content:center;padding-top:8vh;padding-bottom:5vh;}
 #s5b .wrap{display:flex;flex-direction:column;align-items:center;}
-#s5b .ey{width:min(1000px,100%);margin:0 auto 24px;text-align:left;}
+#s5b .ey{width:min(1000px,100%);margin:0 auto 18px;text-align:left;}
 #s5a .gal.pair2x2 .frame{height:auto;aspect-ratio:16/9;}
 #s5a .gal.pair2x2 .frame img{object-fit:cover;background:var(--cream2);}
 #s5b .practice-feature-grid{grid-template-rows:minmax(0,1fr) minmax(0,1fr);width:min(1040px,100%);max-width:1040px;height:min(46vh,420px);gap:14px;margin:0 auto;}
@@ -347,6 +347,8 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #s10b .studio-reason-layout{grid-template-columns:.7fr 1.35fr;gap:4vw;}
 #s10b .studio-reason-shot .frame{height:auto;aspect-ratio:16/9;}
 #s10c .studio-work{grid-template-columns:.9fr 1.15fr;gap:5vw;}
+#s10c .purpose-pills{gap:8px;}
+#s10c .purpose-pills span{padding:11px 16px;font-size:clamp(15px,1.55vw,20px);gap:18px;}
 #s10c .studio-work .frame{height:clamp(360px,44vh,500px);aspect-ratio:auto;}
 .studio-brand{letter-spacing:.04em;font-weight:900;}
 .purpose-pills{display:flex;flex-direction:column;gap:10px;}
@@ -634,7 +636,7 @@ section('s5a', w=>{
 section('s5b', w=>{
   w.classList.add('practice-wrap');
   w.innerHTML='<div class="ey rv">실습 결과물 및 공유자료</div>';
-  const fig=frame({src:'assets/lectures/practice-combined.png', caption:'실습 결과물 및 공유자료'},'r169');
+  const fig=frame({src:'assets/lectures/practice-combined.png'},'r169');
   fig.classList.add('practice-combined','rv','d2');
   w.appendChild(fig);
 }, 'PART 1 · 교육자료', '05-2');
@@ -723,7 +725,7 @@ section('s7b', w=>{
     '<h2 class="big rv d1" style="font-size:clamp(24px,3.2vw,42px);margin-bottom:34px;white-space:pre-line;">'+esc(a.bridge)+'</h2>';
   const ef=document.createElement('div'); ef.className='effects rv d2';
   (a.effects||[]).forEach((e,i)=>{ const d=document.createElement('div'); d.className='e';
-    d.innerHTML='<div class="n">0'+(i+1)+'</div><h4>'+esc(e.title)+'</h4><p>'+esc(e.note)+'</p>'; ef.appendChild(d); });
+    d.innerHTML='<div class="n">0'+(i+1)+'</div><h4>'+esc(e.title)+'</h4>'+(e.note?'<p>'+esc(e.note)+'</p>':''); ef.appendChild(d); });
   w.appendChild(ef);
 }, 'PART 2 · 필요성', '07-2');
 

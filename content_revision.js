@@ -151,7 +151,7 @@ const CONTENT = {
     bridge: "그래서,\n책자보다 쉬운 확인 방법이 필요했습니다.",
     effects: [
       { title: "보호자 확인은 쉽게", note: "필요한 정보를 휴대폰으로 확인" },
-      { title: "기본 문의는 줄이고", note: "필요한 정보는 앱에서 바로 확인" },
+      { title: "간단한 정보는 앱에서 바로 확인", note: "" },
       { title: "단순 문의를 줄여", note: "직원 업무 부담 완화" }
     ]
   },
@@ -187,12 +187,12 @@ const CONTENT = {
         ]
       },
       {
-        badge: "확장 아이디어",
+        badge: "후속 제작 예정",
         title: "장기요양 인정절차 현황조회 앱",
         desc: "인정신청부터 등급판정까지, 진행 상황을 단계별로 조회하는 앱.",
         keywords: ["인정신청 접수", "인정조사", "등급판정 결과 확인"],
         images: [
-          { src: "assets/app/expansion/status-concept.svg", caption: "개인정보 없는 컨셉 화면" }
+          { src: "assets/app/expansion/status-concept.svg" }
         ]
       }
     ],
