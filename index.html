@@ -229,6 +229,13 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .app-preview-wrap .app-action{position:absolute;right:0;top:0;margin-top:0;}
 .practice-wrap .frame img{object-fit:contain;background:var(--cream2);}
 
+/* existing long-term care finder site */
+#s8a .wrap{max-width:1080px;}
+#s8a .big{font-size:clamp(30px,4vw,54px);margin-bottom:30px;}
+#s8a .longterm-site-shot{width:min(620px,100%);margin:0 auto;}
+#s8a .longterm-site-frame{aspect-ratio:937/1106;background:var(--cream2);box-shadow:0 22px 48px -36px rgba(0,0,0,.85);}
+#s8a .longterm-site-frame img{object-fit:contain;background:#f7f8fb;}
+
 /* app expansion plan */
 #s8b,#s8c{padding:7vh 6vw 5vh;}
 #s8b .wrap,#s8c .wrap{max-width:1100px;}
@@ -745,7 +752,15 @@ section('s8', w=>{
   w.appendChild(gallery(a.images,'rapp','app app-preview',null));
 }, 'PART 2 · 왜 앱이 필요한가', '08');
 
-/* ───── 08-1 APP EXPANSION PLAN ───── */
+section('s8a', w=>{
+  const lt=C.longtermSite||{};
+  w.innerHTML='<h2 class="big rv d1">'+esc(lt.title||'현재 기관찾기 방식')+'</h2>';
+  const fig=frame(lt.image||{}, 'longterm-site-frame');
+  fig.classList.add('longterm-site-shot','rv','d2');
+  w.appendChild(fig);
+}, 'PART 2 · 하나의 안내 앱에서, 이용 과정 전체로', '08-1');
+
+/* ───── 08-2 APP EXPANSION PLAN ───── */
 function buildExpCard(item,i){
   const card=document.createElement('article');
   card.className='extension-card rv d2 '+(i===1?'status':'finder');
@@ -769,7 +784,7 @@ section('s8b', w=>{
   w.innerHTML='';
   const apps=ex.apps||[];
   if(apps[0]) w.appendChild(buildExpCard(apps[0],0));
-}, 'PART 2 · 하나의 안내 앱에서, 이용 과정 전체로', '08-1');
+}, 'PART 2 · 하나의 안내 앱에서, 이용 과정 전체로', '08-2');
 
 section('s8c', w=>{
   const ex=C.appExpansion||{};
@@ -780,7 +795,7 @@ section('s8c', w=>{
     const f=document.createElement('div'); f.className='extension-footer rv d3'; f.textContent=footer;
     w.appendChild(f);
   }
-}, 'PART 2 · 하나의 안내 앱에서, 이용 과정 전체로', '08-2');
+}, 'PART 2 · 하나의 안내 앱에서, 이용 과정 전체로', '08-3');
 
 /* ───── 09 STUDIO CHAPTER ───── */
 section('s9', w=>{

@@ -173,7 +173,13 @@ const CONTENT = {
     ]
   },
 
-  /* ── 08-1. 장기요양 앱 확장 계획 ───────────────────────── */
+  /* ── 08-1. 기존 장기요양 기관찾기 사이트 화면 ───────────── */
+  longtermSite: {
+    title: "현재 기관찾기 방식",
+    image: { src: "assets/longterm/longtermcare.png" }
+  },
+
+  /* ── 08-2. 장기요양 앱 확장 계획 ───────────────────────── */
   appExpansion: {
     label: "",
     title: "다음 단계",
