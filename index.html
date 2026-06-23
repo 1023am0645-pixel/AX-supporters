@@ -286,7 +286,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .practice-feature-grid .right-tall .frame{height:100%;aspect-ratio:auto;flex:1;}
 .practice-feature-grid .left-top,.practice-feature-grid .left-bottom{height:100%;display:flex;flex-direction:column;}
 .practice-feature-grid .left-top .frame,.practice-feature-grid .left-bottom .frame{height:100%;aspect-ratio:auto;flex:1;}
-.practice-feature-grid figure{min-width:0;}
+.practice-feature-grid figure,.practice-feature-grid .frame{min-width:0;min-height:0;}
 
 /* keep dense image pages inside the presentation viewport */
 #s5a,#s5b,#s7,#s8{padding-top:8vh;padding-bottom:6vh;}
@@ -295,7 +295,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #s5b .ey{width:min(1000px,100%);margin:0 auto 24px;text-align:left;}
 #s5a .gal.pair2x2 .frame{height:auto;aspect-ratio:16/9;}
 #s5a .gal.pair2x2 .frame img{object-fit:cover;background:var(--cream2);}
-#s5b .practice-feature-grid{grid-template-rows:1fr 1fr;width:min(1040px,100%);max-width:1040px;height:min(46vh,420px);gap:14px;margin:0 auto;}
+#s5b .practice-feature-grid{grid-template-rows:minmax(0,1fr) minmax(0,1fr);width:min(1040px,100%);max-width:1040px;height:min(46vh,420px);gap:14px;margin:0 auto;}
 #s7{padding-top:7vh;padding-bottom:5vh;}
 #s7 .book-proof{max-width:1080px;gap:18px;}
 #s7 .book-proof .frame{height:auto;aspect-ratio:5/7;}
