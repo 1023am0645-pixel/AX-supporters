@@ -185,9 +185,9 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .review-footnote{margin-top:16px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:13px;color:var(--soft);
   letter-spacing:.03em;text-align:right;}
 #s5d{padding-top:7vh;padding-bottom:5vh;}
-#s5d .wrap{max-width:1280px;}
-#s5d .review-lines{gap:12px;max-width:992px;}
-#s5d .review-line{gap:14px;padding:16px 22px;border-radius:8px;}
+#s5d .wrap{max-width:1500px;}
+#s5d .review-lines{gap:12px;max-width:1360px;width:100%;}
+#s5d .review-line{grid-template-columns:1fr;gap:0;padding:16px 28px;border-radius:8px;}
 #s5d .review-line .n{font-size:16px;}
 #s5d .review-line p{font-family:'Batang','바탕','Noto Serif KR',serif;font-style:italic;font-size:clamp(14px,1.16vw,18px);line-height:1.5;font-weight:500;color:#eee4d7;}
 #s5d .review-line .q{font-family:'Batang','바탕','Noto Serif KR',serif;font-style:italic;font-size:1.1em;font-weight:600;}
@@ -355,10 +355,12 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #s10b .studio-reason-layout{grid-template-columns:.7fr 1.35fr;gap:4vw;}
 #s10b .studio-reason-shot .frame{height:auto;aspect-ratio:1534/1394;}
 #s10b .studio-reason-shot .frame img{object-fit:contain;background:var(--cream2);}
+#s10b .studio-reason-shot{width:80%;margin:0 auto;}
 #s10c .studio-work{grid-template-columns:.9fr 1.15fr;gap:5vw;}
 #s10c .purpose-pills{gap:7px;}
 #s10c .purpose-pills span{padding:9px 14px;font-size:clamp(14px,1.42vw,18px);gap:16px;}
-#s10c .studio-work .frame{height:clamp(360px,44vh,500px);aspect-ratio:auto;}
+#s10c .studio-work .frame{height:clamp(430px,54vh,620px);aspect-ratio:auto;}
+#s10c .studio-work .frame img{object-fit:contain;background:var(--cream2);}
 .studio-brand{letter-spacing:.04em;font-weight:900;}
 .purpose-pills{display:flex;flex-direction:column;gap:10px;}
 .purpose-pills span{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(16px,1.65vw,21px);
@@ -700,7 +702,7 @@ section('s5d', w=>{
   (C.lectureReviewCards||[]).forEach((txt,i)=>{
     const row=document.createElement('div'); row.className='review-line';
     const phrases=(C.lectureReviewHighlights||[])[i]||[];
-    row.innerHTML='<div class="n">0'+(i+1)+'</div><p><span class="q">“</span>'+markReview(txt,phrases)+'<span class="q">”</span></p>';
+    row.innerHTML='<p><span class="q">“</span>'+markReview(txt,phrases)+'<span class="q">”</span></p>';
     lines.appendChild(row);
   });
   const foot=document.createElement('div'); foot.className='review-footnote'; foot.textContent=esc(C.lectureReviewFootnote||'네이버 설문 응답 일부 발췌');
