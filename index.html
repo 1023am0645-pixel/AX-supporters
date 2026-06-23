@@ -252,8 +252,8 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .extension-shot .frame{display:block;width:100%;height:auto;aspect-ratio:auto;border-radius:10px;background:#f7f8fb;overflow:hidden;}
 .extension-shot .frame img{display:block;width:100%;height:auto;background:#f7f8fb;}
 .extension-card.status .extension-images{grid-template-columns:1fr;}
-.extension-card.status .extension-shot{max-width:680px;margin:0 auto;width:100%;}
-.extension-shot figcaption{margin-top:8px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+.extension-card.status .extension-shot{max-width:480px;margin:0 auto;width:100%;}
+.extension-shot figcaption{display:none;margin-top:8px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
   font-size:12.5px;color:var(--soft);font-weight:600;}
 .extension-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px;}
 .extension-tags span{border:1px solid rgba(166,138,110,.28);border-radius:999px;padding:6px 10px;
@@ -295,7 +295,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #s5b .ey{width:min(1000px,100%);margin:0 auto 24px;text-align:left;}
 #s5a .gal.pair2x2 .frame{height:auto;aspect-ratio:16/9;}
 #s5a .gal.pair2x2 .frame img{object-fit:cover;background:var(--cream2);}
-#s5b .practice-feature-grid{grid-template-rows:1fr 1fr;width:min(1040px,100%);max-width:1040px;height:min(50vh,460px);gap:14px;margin:0 auto;}
+#s5b .practice-feature-grid{grid-template-rows:1fr 1fr;width:min(1040px,100%);max-width:1040px;height:min(46vh,420px);gap:14px;margin:0 auto;}
 #s7{padding-top:7vh;padding-bottom:5vh;}
 #s7 .book-proof{max-width:1080px;gap:18px;}
 #s7 .book-proof .frame{height:auto;aspect-ratio:5/7;}
@@ -355,7 +355,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 /* next checklist */
 .checks{list-style:none;margin-top:10px;border-top:1px solid var(--line);}
 .checks li{display:flex;align-items:center;gap:14px;padding:16px 4px;border-bottom:1px solid var(--line2);
-  font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(15px,1.5vw,19px);font-weight:700;color:var(--ink);line-height:1.45;}
+  font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(20px,2vw,24px);font-weight:700;color:var(--ink);line-height:1.45;}
 .checks li .bx{width:20px;height:20px;border:2px solid var(--gold);border-radius:6px;flex:none;}
 
 /* closing */
@@ -364,20 +364,20 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
   radial-gradient(120% 80% at 50% 100%,rgba(201,168,106,.05),transparent 55%),
   #1c1b1a;
   padding:8vh 6vw;}
-#sEnd .folio{display:none;}
+#sEnd .folio{display:flex;}
 #sEnd .wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;}
 #sEnd .ep-page{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;}
 #sEnd .ep-eyebrow{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
   font-size:12px;letter-spacing:.42em;font-weight:600;color:#b08d52;text-transform:uppercase;
   margin-bottom:clamp(28px,5vh,46px);padding-left:.42em;}
 #sEnd .ep-lead{font-family:'Noto Serif KR',serif;font-weight:300;word-break:keep-all;overflow-wrap:normal;
-  font-size:clamp(15px,1.5vw,18px);line-height:1.9;color:#9a9186;margin-bottom:clamp(22px,3.4vh,34px);}
+  font-size:clamp(15px,1.5vw,18px);line-height:1.9;color:#b8afa1;margin-bottom:clamp(40px,6vh,60px);}
 #sEnd .ep-focal{font-family:'Noto Serif KR',serif;font-weight:500;word-break:keep-all;overflow-wrap:normal;
-  font-size:clamp(23px,3vw,34px);line-height:1.55;letter-spacing:-.01em;color:#ece2d6;margin-bottom:clamp(26px,4.2vh,42px);}
+  font-size:clamp(23px,3vw,34px);line-height:1.55;letter-spacing:-.01em;color:#ece2d6;margin-bottom:clamp(44px,6.5vh,64px);}
 #sEnd .ep-hl{color:#c9a86a;font-weight:600;}
-#sEnd .ep-rule{width:38px;height:1px;background:#b08d52;opacity:.55;margin:0 auto clamp(26px,4.2vh,42px);}
+#sEnd .ep-rule{width:38px;height:1px;background:#b08d52;opacity:.55;margin:0 auto clamp(40px,6vh,60px);}
 #sEnd .ep-tail{font-family:'Noto Serif KR',serif;font-weight:300;word-break:keep-all;overflow-wrap:normal;
-  font-size:clamp(15px,1.55vw,19px);line-height:1.9;color:#9a9186;}
+  font-size:clamp(15px,1.55vw,19px);line-height:1.9;color:#b8afa1;}
 #sEnd .ep-lead{transition-delay:.35s;}
 #sEnd .ep-focal{transition-delay:1.15s;}
 #sEnd .ep-rule{transition-delay:1.65s;}
@@ -750,8 +750,7 @@ function buildExpCard(item,i){
   const card=document.createElement('article');
   card.className='extension-card rv d2 '+(i===1?'status':'finder');
   card.innerHTML='<div class="extension-card-head"><h3>'+esc(item.title||'')+'</h3>'+
-    '<span class="extension-badge">'+esc(item.badge||'확장 계획')+'</span></div>'+
-    '<p class="extension-desc">'+esc(item.desc||'')+'</p>';
+    '<span class="extension-badge">'+esc(item.badge||'확장 계획')+'</span></div>';
   const shots=document.createElement('div'); shots.className='extension-images';
   (item.images||[]).forEach(imgItem=>{
     const fig=frame(imgItem,'r1610'); fig.classList.add('extension-shot'); shots.appendChild(fig);
@@ -767,14 +766,10 @@ function buildExpCard(item,i){
 section('s8b', w=>{
   const ex=C.appExpansion||{};
   const sub=Array.isArray(ex.sub)?ex.sub.join('\n'):(ex.sub||'');
-  w.innerHTML='<div class="expansion-head rv d1">'+
-    (ex.label?'<div class="ey">'+esc(ex.label)+'</div>':'')+
-    '<h2 class="big">'+esc(ex.title||'다음 단계')+'</h2>'+
-    '<p class="expansion-sub">'+esc(sub)+'</p>'+
-    '</div>';
+  w.innerHTML='';
   const apps=ex.apps||[];
   if(apps[0]) w.appendChild(buildExpCard(apps[0],0));
-}, 'PART 2 · 확장 계획', '08-1');
+}, 'PART 2 · 하나의 안내 앱에서, 이용 과정 전체로', '08-1');
 
 section('s8c', w=>{
   const ex=C.appExpansion||{};
@@ -785,7 +780,7 @@ section('s8c', w=>{
     const f=document.createElement('div'); f.className='extension-footer rv d3'; f.textContent=footer;
     w.appendChild(f);
   }
-}, 'PART 2 · 확장 계획', '08-2');
+}, 'PART 2 · 하나의 안내 앱에서, 이용 과정 전체로', '08-2');
 
 /* ───── 09 STUDIO CHAPTER ───── */
 section('s9', w=>{
@@ -844,7 +839,7 @@ section('s11', w=>{
 /* ───── 12 CLOSING ───── */
 section('sEnd', w=>{
   let html='<div class="ep-page">';
-  html+='<div class="ep-eyebrow rv">Epilogue</div>';
+  html+='';
   html+='<p class="ep-lead rv d1">이번 AX-서포터즈 활동은<br>AI를 배우는 데서 멈추지 않고</p>';
   html+='<p class="ep-focal rv d2">직원에게는 <span class="ep-hl">업무도구</span>로,<br>국민에게는 <span class="ep-hl">더 쉬운 안내수단</span>으로<br>이어갈 가능성을 확인하는 과정이었습니다.</p>';
   html+='<div class="ep-rule rv d3"></div>';
