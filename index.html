@@ -920,6 +920,15 @@ function go(d){
 }
 document.getElementById('next').onclick=()=>go(1);
 document.getElementById('prev').onclick=()=>go(-1);
+let lastScreenAdvance=0;
+addEventListener('click',e=>{
+  if(e.defaultPrevented || e.button!==0) return;
+  if(e.target.closest('a,button,input,textarea,select,label,[contenteditable="true"],.dots,.arrows,.img-upload')) return;
+  const now=Date.now();
+  if(now-lastScreenAdvance<700) return;
+  lastScreenAdvance=now;
+  go(1);
+});
 addEventListener('keydown',e=>{
   if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(1);}
   if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(-1);}
