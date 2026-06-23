@@ -277,7 +277,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #s5a,#s5b{padding-left:7vw;padding-right:7vw;}
 #s5a .wrap,#s5b .wrap{max-width:1320px;}
 #s5b .wrap{max-width:1120px;}
-#s5a .gal.pair2x2{gap:18px 24px;max-width:980px;margin:0 auto;}
+#s5a .gal.pair2x2{gap:18px 24px;max-width:972px;margin:0 auto;}
 .practice-feature-grid{display:grid;grid-template-columns:1.08fr .92fr;grid-template-rows:auto auto;gap:18px;max-width:1260px;margin:12px auto 0;}
 .practice-feature-grid .left-top{grid-column:1;grid-row:1;}
 .practice-feature-grid .left-bottom{grid-column:1;grid-row:2;}
@@ -320,6 +320,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .problist li:last-child{border-bottom:1px solid var(--line2);}
 .problist li .x{color:var(--gold-deep);font-weight:700;flex:none;}
 .problist.large li .x{font-size:clamp(15px,1.55vw,18px);}
+#s10a .rv{transition-duration:1.8s;}
 .solution{background:var(--ink);border-radius:16px;padding:30px 32px;color:var(--cream2);}
 .solution .lab{font-family:'Noto Serif KR',serif;font-size:34px;font-weight:900;letter-spacing:.015em;}
 .solution .lab .a{color:var(--gold);font-weight:900;}
@@ -798,7 +799,7 @@ section('s10a', w=>{
   const st=C.studio||{};
   w.innerHTML='<h2 class="big rv d1" style="font-size:clamp(26px,3.6vw,44px);margin-bottom:68px;white-space:pre-line;">'+esc(st.statusTitle||'강의가 끝난 뒤에도,\\n돌아보고 점검하는 시간이 필요했습니다.')+'</h2>'+
     '<div class="ey rv d2" style="margin-bottom:18px;">'+esc(st.statusKicker||'필요했던 것')+'</div>';
-  const ul=document.createElement('ul'); ul.className='problist large';
+  const ul=document.createElement('ul'); ul.className='problist large rv d3';
   (st.problems||[]).forEach((p,i)=>{ const li=document.createElement('li'); li.innerHTML='<span class="x">0'+(i+1)+'</span><span>'+esc(p)+'</span>'; ul.appendChild(li); });
   w.appendChild(ul);
 }, 'PART 3 · AI STUDIO', '10-1');
