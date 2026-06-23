@@ -249,10 +249,10 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 .extension-desc{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:clamp(14px,1.05vw,16px);
   color:var(--muted);font-weight:600;line-height:1.6;white-space:pre-line;margin-bottom:12px;}
 .extension-images{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:12px;margin-top:10px;}
-.extension-shot .frame{height:clamp(230px,36vh,380px);aspect-ratio:auto;border-radius:10px;background:#f7f8fb;}
-.extension-shot .frame img{object-fit:contain;background:#f7f8fb;}
+.extension-shot{text-align:center;}.extension-shot .frame{display:inline-block;width:auto;height:auto;aspect-ratio:auto;max-width:100%;border-radius:10px;background:#f7f8fb;}
+.extension-shot .frame img{display:block;width:auto;height:auto;max-width:100%;max-height:42vh;background:#f7f8fb;}
 .extension-card.status .extension-images{grid-template-columns:1fr;}
-.extension-card.status .extension-shot .frame{height:clamp(300px,44vh,460px);}.extension-card.status .extension-shot{max-width:820px;margin:0 auto;width:100%;}
+.extension-card.status .extension-shot .frame img{max-height:50vh;}.extension-card.status .extension-shot{max-width:760px;margin:0 auto;width:100%;}
 .extension-shot figcaption{margin-top:8px;font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
   font-size:12.5px;color:var(--soft);font-weight:600;}
 .extension-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px;}
@@ -270,7 +270,7 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 #s8b .extension-card-head{margin-bottom:8px;}
 #s8b .extension-desc{line-height:1.45;margin-bottom:8px;}
 #s8b .extension-images{gap:10px;margin-top:8px;}
-#s8b .extension-shot .frame{height:clamp(220px,32vh,330px);}
+#s8b .extension-shot .frame img{max-height:38vh;}
 #s8b .extension-shot figcaption{margin-top:6px;font-size:12px;}
 #s8b .extension-tags{margin-top:10px;gap:6px;}
 #s8b .extension-tags span{padding:5px 9px;font-size:12px;}
@@ -290,12 +290,12 @@ figcaption{margin-top:12px;font-size:15px;color:var(--muted);letter-spacing:.01e
 
 /* keep dense image pages inside the presentation viewport */
 #s5a,#s5b,#s7,#s8{padding-top:8vh;padding-bottom:6vh;}
-#s5b{justify-content:center;padding-top:6vh;padding-bottom:6vh;}
+#s5b{justify-content:center;padding-top:5vh;padding-bottom:5vh;}
 #s5b .wrap{display:flex;flex-direction:column;align-items:center;}
 #s5b .ey{width:min(1000px,100%);margin:0 auto 24px;text-align:left;}
 #s5a .gal.pair2x2 .frame{height:auto;aspect-ratio:16/9;}
 #s5a .gal.pair2x2 .frame img{object-fit:cover;background:var(--cream2);}
-#s5b .practice-feature-grid{grid-template-rows:1fr 1fr;width:min(1000px,100%);max-width:1000px;height:min(40vh,430px);gap:14px;margin:0 auto;}
+#s5b .practice-feature-grid{grid-template-rows:1fr 1fr;width:min(1040px,100%);max-width:1040px;height:min(50vh,460px);gap:14px;margin:0 auto;}
 #s7{padding-top:7vh;padding-bottom:5vh;}
 #s7 .book-proof{max-width:1080px;gap:18px;}
 #s7 .book-proof .frame{height:auto;aspect-ratio:5/7;}
