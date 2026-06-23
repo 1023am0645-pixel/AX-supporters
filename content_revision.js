@@ -95,9 +95,9 @@ const CONTENT = {
   /* ── 05. 강의 교안 / 실습 결과물 / 후기 ────────────────── */
   lectureMaterials: [
     { src: "assets/lectures/material-ax-01.png" },
-    { src: "assets/lectures/material-ax-02.png" },
-    { src: "assets/lectures/material-west-01.png" },
-    { src: "assets/lectures/material-west-02.png" }
+    { src: "assets/lectures/material-ax-02.png?v=3" },
+    { src: "assets/lectures/material-west-01.png?v=3" },
+    { src: "assets/lectures/material-west-02.png?v=3" }
   ],
   lecturePractice: [
     { src: "assets/lectures/practice-ax-01.png" },
