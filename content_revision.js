@@ -221,9 +221,9 @@ const CONTENT = {
     statusKicker: "필요했던 것",
     statusTitle: "강의가 끝난 뒤에도,\n돌아보고 점검하는 시간이 필요했습니다.",
     reasonTitle: "나만의 AI 회사를 만들었습니다.",
-    workKicker: "나만의 AI 회사",
-    workTitle: "HA:YEON AI STUDIO",
-    workSub: "이 공간이 하는 일",
+    workKicker: "",
+    workTitle: "나만의 AI 회사",
+    workSub: "",
     problems: [
       "복기와 개선점 정리가 수작업으로 반복됨",
       "후기 분석과 자가점검에 시간이 오래 걸림",
